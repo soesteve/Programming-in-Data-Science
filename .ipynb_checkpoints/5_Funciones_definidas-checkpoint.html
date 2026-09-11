@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>4_Control_de_flujo</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>5_Funciones_definidas-checkpoint</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7527,162 +7527,132 @@ a.anchor-link {
     }
     </style></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Control-de-flujo">Control de flujo</a><ol><li><a href="#La-estructura-if">La estructuraif</a></li><li><a href="#La-estructura-if-else">La estructuraif-else</a></li><li><a href="#La-estructura-if-elif-else">La estructuraif-elif-else</a></li><li><a href="#El-bucle-for">El buclefor</a></li><li><a href="#El-bucle-while">El bucle while</a></li><li><a href="#Comparaci%C3%B3n-entre-for-y-while">Comparación entre for y while</a></li></ol></li><li><a href="#Referencias">Referencias</a></li></ol></div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a2c50bbd-f566-49bf-b0eb-44f9fe78f938">
+<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Funciones-definidas">Funciones definidas</a><ol><li><a href="#Definici%C3%B3n-y-llamada-de-una-funci%C3%B3n">Definición y llamada de una función</a></li><li><a href="#Documentaci%C3%B3n-de-una-funci%C3%B3n">Documentación de una función</a></li><li><a href="#La-indentaci%C3%B3n-en-Python">La indentación en Python</a></li><li><a href="#Referencias">Referencias</a></li></ol></li></ol></div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Control-de-flujo">Control de flujo<a class="anchor-link" href="#Control-de-flujo">¶</a></h1>
+<h1 id="Funciones-definidas">Funciones definidas<a class="anchor-link" href="#Funciones-definidas">¶</a></h1><hr/>
+<p>Cuando definimos una función, disponemos de una herramienta útil que podemos luego usar en múltiples situaciones concretas:</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aa01c3b0-f5a9-46f5-9b87-895091419b33">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>El tema de Control de flujo explica cómo un programa decide qué instrucciones ejecutar y cuántas veces repetirlas. Es decir, el control de flujo determina el orden en que se ejecutan las instrucciones de un programa. Por defecto, las instrucciones se ejecutan una detrás de otra (ejecución secuencial). Sin embargo, muchas veces necesitamos:</p>
-<ul>
-<li><p>Tomar decisiones ("si ocurre esto, haz una cosa; si no, otra").</p>
-</li>
-<li><p>Repetir acciones varias veces.</p>
-</li>
-<li><p>Detener o continuar una repetición según una condición.</p>
-</li>
-</ul>
-<p>Python, como todos los lenguajes de programación, proporciona varias estructuras para controlar el flujo del programa.</p>
+<h2 id="Definici%C3%B3n-y-llamada-de-una-funci%C3%B3n">Definición y llamada de una función<a class="anchor-link" href="#Definici%C3%B3n-y-llamada-de-una-funci%C3%B3n">¶</a></h2><p>Estos dos conceptos se ven mucho mejor con un ejemplo:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e07dfa0a-5ffc-42fb-9201-51ae54d60091">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="La-estructura-if">La estructura <code>if</code><a class="anchor-link" href="#La-estructura-if">¶</a></h2><p>La instrucción <code>if</code> permite ejecutar un bloque de código únicamente cuando una condición es verdadera.
-Su sintáxis es:</p>
-<pre><code>if condicion:
-    instrucciones
-</code></pre>
-<p>Observa que:</p>
-<ul>
-<li><p>La condición termina con :.</p>
-</li>
-<li><p>El bloque que se ejecuta está indentado (normalmente con cuatro espacios).</p>
-</li>
-<li><p>Si la condición es falsa, no ocurre nada.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b4c6368e-1add-4c72-becc-d414af1292ca">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Ejemplo</span>
-<span class="n">edad</span> <span class="o">=</span> <span class="mi">28</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Definición de una función:</span>
 
-<span class="k">if</span> <span class="n">edad</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Eres mayor de edad."</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Eres mayor de edad.
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bf1e4431-bff3-4d05-b7ae-9d9e7898eec7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="La-estructura-if-else">La estructura <code>if-else</code><a class="anchor-link" href="#La-estructura-if-else">¶</a></h2><p>Cuando queremos elegir entre dos alternativas utilizamos <code>else</code>.</p>
-<pre><code>if condicion:
-    instrucciones
-else:
-    instrucciones
-</code></pre>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4010a00d-18fe-4c5e-8135-49b41771d423">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Ejemplo</span>
-<span class="n">edad</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="k">def</span> <span class="nf">formar_numero</span><span class="p">(</span><span class="n">dec</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">uni</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">valor_decenas</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">dec</span>
+    <span class="n">valor_unidades</span> <span class="o">=</span> <span class="n">uni</span>
+    <span class="k">return</span> <span class="n">valor_decenas</span> <span class="o">+</span> <span class="n">valor_unidades</span>
 
-<span class="k">if</span> <span class="n">edad</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Mayor de edad"</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Menor de edad"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Menor de edad
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=024c467d-da9f-4198-a7fa-ffb26f132100">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="La-estructura-if-elif-else">La estructura <code>if-elif-else</code><a class="anchor-link" href="#La-estructura-if-elif-else">¶</a></h2><p>Cuando existen varias posibilidades utilizamos <code>elif</code>.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=19871a98-aebf-4924-87ed-6c2c4ddd5fd1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Ejemplo</span>
+<span class="c1"># Distintas llamadas a la función anterior:</span>
 
-<span class="n">nota</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">formar_numero</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">formar_numero</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">formar_numero</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">formar_numero</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>En el ejemplo anterior, la función "componer_numero" se define usando los <em>parámetros abstractos</em> "dec" y "uni", que representan las cifras de las decenas y las unidades de un número.</p>
+<p>El cuerpo de la definición se compone de instrucciones, que trabajan con los parámetros abstractos.
+Una instrucción especial, llamada <em>return</em> sirve para expresar el valor que la función devuelve, tras los cálculos.</p>
+<p>Cada uso (o <em>llamada</em>) de la función se hace con los parámetros concretos con los que realmente necesitamos realizar los cálculos. En cada llamada, los parámetros abstractos (también llamados parámetros <em>formales</em>) asumen los valores de los parámetros concretos (también llamados parámetros <em>reales</em>) y se ejecuta el cuerpo con ellos.</p>
+<p>Los ejemplos siguientes son fáciles de entender. En ellos, te resultará fácil distinguir entre definición y llamadas, y entre parámetros formales y reales.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">media</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span> <span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">media</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">25</span><span class="p">),</span> <span class="n">media</span><span class="p">(</span><span class="mf">3.4</span><span class="p">,</span><span class="mf">5.6</span><span class="p">),</span> <span class="n">media</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">7.3</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">media</span><span class="p">(</span><span class="n">media</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span> <span class="n">media</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
-<span class="k">if</span> <span class="n">nota</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Sobresaliente"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">nota</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Notable"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">nota</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Aprobado"</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Suspenso"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">area_circulo</span><span class="p">(</span><span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="n">area_circulo</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7694,255 +7664,160 @@ else:
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Notable
+<pre>12.566370614359172
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6f03e14d-9d18-4476-97c6-957f98d7468d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Las condiciones se evalúan de arriba hacia abajo y solo se ejecuta el primer bloque cuya condición sea verdadera.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=74a99678-ad9c-445e-aa65-01ef4b83fc23">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="El-bucle-for">El bucle <code>for</code><a class="anchor-link" href="#El-bucle-for">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9f41410a-7998-41f6-b12d-db5fef98961c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>El bucle <code>for</code> repite un bloque de instrucciones recorriendo una secuencia.</p>
-<pre><code>for variable in iterable:
-    # Bloque de código que se repite
-</code></pre>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=98bb94fb-dc67-4650-949e-9193576bff2c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Ejemplo</span>
-<span class="n">frutas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"manzana"</span><span class="p">,</span> <span class="s2">"pera"</span><span class="p">,</span> <span class="s2">"kiwi"</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#  pi está limitado a la representación interna del tipo float de Python.</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>float</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Documentaci%C3%B3n-de-una-funci%C3%B3n">Documentación de una función<a class="anchor-link" href="#Documentaci%C3%B3n-de-una-funci%C3%B3n">¶</a></h2><p>Debemos indicar lo que hace la función y el tipo que deben tener los parámetros de entrada y el valor devuelto.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">maximo</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Función que calcula el máximo de 2 números</span>
 
-<span class="k">for</span> <span class="n">fruta</span> <span class="ow">in</span> <span class="n">frutas</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">fruta</span><span class="p">)</span>
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; maximo(2, 3)</span>
+<span class="sd">    3</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">))</span> <span class="o">//</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>manzana
-pera
-kiwi
-</pre>
-</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">maximo</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=408a432e-bea5-408f-91d0-c8577e509126">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">media</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">maximo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">maximo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="n">maximo</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Podemos usar los datos contenidos en una lista, ejemplo anterior, o usar un rango numérico. <code>range()</code> genera una secuencia de números, dependiendo del número de parámetros de la función <code>range()</code>:</p>
-<ul>
-<li>1 parámetro: muestra el rango desde 0 hasta dicho núnero.</li>
-</ul>
-<pre><code>    range(5) devuelve 0,1,2,3,4
-</code></pre>
-<ul>
-<li>2 parámetros: muestra el rango que definen dichos parámetros</li>
-</ul>
-<pre><code>    range(2,6) devuelve 2,3,4,5
-</code></pre>
-<ul>
-<li>3 parámetros: muestra el rango que definen los dos primeros parámetros con el salto que define el tercer parámetro.</li>
-</ul>
-<pre><code>    range(0,10,2) devuelve 0,2,4,6,8
-</code></pre>
+<h2 id="La-indentaci%C3%B3n-en-Python">La indentación en Python<a class="anchor-link" href="#La-indentaci%C3%B3n-en-Python">¶</a></h2><p>Los indentación espacios en blanco que están en el lado izquierdo de cada línea de código.
+En Python se usa la indentación para definir bloques de código. Las líneas que estén indentadas al mismo nivel pertenecen al mismo bloque de código.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=38cd7114-9d0b-40c6-bece-d5beb1a8d436">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>0
-1
-2
-3
-4
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2399d2e5-907d-4907-aaac-efc4cb74ff14">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">numero</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>2
-4
-6
-8
-10
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c1a0d97d-927d-425d-8e8a-746b91457797">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="El-bucle-while">El bucle while<a class="anchor-link" href="#El-bucle-while">¶</a></h2><p><code>while</code> repite instrucciones mientras una condición sea verdadera. Su sintaxis es:</p>
-<pre><code>while condicion:
-    instrucciones
-</code></pre>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b1ca7c1b-3960-4c1f-8c3d-1ddb364f473c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">contador</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
-<span class="k">while</span> <span class="n">contador</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">contador</span><span class="p">)</span>
-    <span class="n">contador</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="c1"># error IndentationError: expected an indented block after function definition</span>
+<span class="k">def</span> <span class="nf">area_circulo</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+<span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>1
-2
-3
-4
-5
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a2ac81b6-0603-4b5b-8e7b-257585edf09d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Error común: NO actualizar la variable de control ==&gt; un bucle infinito.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=37c99000-80ff-4363-b8c7-d98573861ae8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Comparaci%C3%B3n-entre-for-y-while">Comparación entre for y while<a class="anchor-link" href="#Comparaci%C3%B3n-entre-for-y-while">¶</a></h2><table>
-<thead>
-<tr>
-<th>for</th>
-<th>while</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Recorre una secuencia</td>
-<td>Depende de una condición</td>
-</tr>
-<tr>
-<td>Número de repeticiones conocido</td>
-<td>Número de repeticiones desconocido</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b100d56c-67ae-4eec-afed-f8f5b2cfd5f1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Referencias">Referencias<a class="anchor-link" href="#Referencias">¶</a></h1><ul>
-<li><a href="http://docs.python.org.ar/tutorial/pdfs/TutorialPython3.pdf">Tutorial de Python. Por Guido Van Rossum</a></li>
-<li><a href="https://www.python.org/dev/peps/pep-0008/">Guía de estilo de código Python</a></li>
-<li><a href="http://www.garceta.es/libro.php?ISBN=978-84-1622-883-6">Big Data. Análisis de datos con Python. Sarasa Cabezuelo, Antonio; García Ruiz, Yolanda Aditorial Garceta. ISBN: 978-84-1622-883-6</a></li>
-</ul>
+<h2 id="Referencias">Referencias<a class="anchor-link" href="#Referencias">¶</a></h2><p>Funciones:
+<a href="https://www.w3schools.com/python/python_functions.asp">https://www.w3schools.com/python/python_functions.asp</a></p>
+<p>Pi y Python:
+<a href="http://edupython.blogspot.com/2015/03/pensando-en-pi.html">http://edupython.blogspot.com/2015/03/pensando-en-pi.html</a></p>
 </div>
 </div>
 </div>
