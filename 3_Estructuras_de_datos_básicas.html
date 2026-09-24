@@ -7312,7 +7312,6 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
-                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7332,12 +7331,7 @@ a.anchor-link {
     if (!diagrams.length) {
       return;
     }
-    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs")).default;
-    const elkUrl = "https://cdnjs.cloudflare.com/ajax/libs/mermaid-layout-elk/0.1.9/mermaid-layout-elk.esm.min.mjs";
-    if(elkUrl) {
-      const elkLayouts = (await import(elkUrl)).default;
-      mermaid.registerLayoutLoaders(elkLayouts);
-    }
+    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs")).default;
     const parser = new DOMParser();
 
     mermaid.initialize({
@@ -7434,8 +7428,7 @@ a.anchor-link {
      * Post-process to ensure mermaid diagrams contain only valid SVG and XHTML.
      */
     function cleanMermaidSvg(svg) {
-      svg = svg.replace(RE_VOID_ELEMENT, replaceVoidElement);
-      return `${SVG_XML_HEADER}${svg}`;
+      return svg.replace(RE_VOID_ELEMENT, replaceVoidElement);
     }
 
 
@@ -7461,285 +7454,6 @@ a.anchor-link {
       }
       return `<${tag} ${rest}>`;
     }
-
-
-  /**
-   * Named HTML entities with their decimal equivalent codes.
-   *
-   * @see https://www.w3.org/TR/WD-html40-970708/sgml/entities.html
-   * */
-  const HTML_ENTITIES = `<!ENTITY Aacute "&#193;">
-<!ENTITY aacute "&#225;">
-<!ENTITY Acirc "&#194;">
-<!ENTITY acirc "&#226;">
-<!ENTITY acute "&#180;">
-<!ENTITY AElig "&#198;">
-<!ENTITY aelig "&#230;">
-<!ENTITY Agrave "&#192;">
-<!ENTITY agrave "&#224;">
-<!ENTITY alefsym "&#8501;">
-<!ENTITY Alpha "&#913;">
-<!ENTITY alpha "&#945;">
-<!ENTITY amp "&#38;">
-<!ENTITY and "&#8869;">
-<!ENTITY ang "&#8736;">
-<!ENTITY Aring "&#197;">
-<!ENTITY aring "&#229;">
-<!ENTITY asymp "&#8776;">
-<!ENTITY Atilde "&#195;">
-<!ENTITY atilde "&#227;">
-<!ENTITY Auml "&#196;">
-<!ENTITY auml "&#228;">
-<!ENTITY bdquo "&#8222;">
-<!ENTITY Beta "&#914;">
-<!ENTITY beta "&#946;">
-<!ENTITY brvbar "&#166;">
-<!ENTITY bull "&#8226;">
-<!ENTITY cap "&#8745;">
-<!ENTITY Ccedil "&#199;">
-<!ENTITY ccedil "&#231;">
-<!ENTITY cedil "&#184;">
-<!ENTITY cent "&#162;">
-<!ENTITY Chi "&#935;">
-<!ENTITY chi "&#967;">
-<!ENTITY circ "&#710;">
-<!ENTITY clubs "&#9827;">
-<!ENTITY cong "&#8773;">
-<!ENTITY copy "&#169;">
-<!ENTITY crarr "&#8629;">
-<!ENTITY cup "&#8746;">
-<!ENTITY curren "&#164;">
-<!ENTITY dagger "&#8224;">
-<!ENTITY Dagger "&#8225;">
-<!ENTITY darr "&#8595;">
-<!ENTITY dArr "&#8659;">
-<!ENTITY deg "&#176;">
-<!ENTITY Delta "&#916;">
-<!ENTITY delta "&#948;">
-<!ENTITY diams "&#9830;">
-<!ENTITY divide "&#247;">
-<!ENTITY Eacute "&#201;">
-<!ENTITY eacute "&#233;">
-<!ENTITY Ecirc "&#202;">
-<!ENTITY ecirc "&#234;">
-<!ENTITY Egrave "&#200;">
-<!ENTITY egrave "&#232;">
-<!ENTITY empty "&#8709;">
-<!ENTITY emsp "&#8195;">
-<!ENTITY ensp "&#8194;">
-<!ENTITY epsilon "&#949;">
-<!ENTITY Epsilon "&#917;">
-<!ENTITY equiv "&#8801;">
-<!ENTITY Eta "&#919;">
-<!ENTITY eta "&#951;">
-<!ENTITY ETH "&#208;">
-<!ENTITY eth "&#240;">
-<!ENTITY Euml "&#203;">
-<!ENTITY euml "&#235;">
-<!ENTITY exist "&#8707;">
-<!ENTITY fnof "&#402;">
-<!ENTITY forall "&#8704;">
-<!ENTITY frac12 "&#189;">
-<!ENTITY frac14 "&#188;">
-<!ENTITY frac34 "&#190;">
-<!ENTITY frasl "&#8260;">
-<!ENTITY Gamma "&#915;">
-<!ENTITY gamma "&#947;">
-<!ENTITY ge "&#8805;">
-<!ENTITY gt "&#62;">
-<!ENTITY harr "&#8596;">
-<!ENTITY hArr "&#8660;">
-<!ENTITY hearts "&#9829;">
-<!ENTITY hellip "&#8230;">
-<!ENTITY Iacute "&#205;">
-<!ENTITY iacute "&#237;">
-<!ENTITY Icirc "&#206;">
-<!ENTITY icirc "&#238;">
-<!ENTITY iexcl "&#161;">
-<!ENTITY Igrave "&#204;">
-<!ENTITY igrave "&#236;">
-<!ENTITY image "&#8465;">
-<!ENTITY infin "&#8734;">
-<!ENTITY int "&#8747;">
-<!ENTITY Iota "&#921;">
-<!ENTITY iota "&#953;">
-<!ENTITY iquest "&#191;">
-<!ENTITY isin "&#8712;">
-<!ENTITY Iuml "&#207;">
-<!ENTITY iuml "&#239;">
-<!ENTITY Kappa "&#922;">
-<!ENTITY kappa "&#954;">
-<!ENTITY Lambda "&#923;">
-<!ENTITY lambda "&#955;">
-<!ENTITY lang "&#9001;">
-<!ENTITY laquo "&#171;">
-<!ENTITY larr "&#8592;">
-<!ENTITY lArr "&#8656;">
-<!ENTITY lceil "&#8968;">
-<!ENTITY ldquo "&#8220;">
-<!ENTITY le "&#8804;">
-<!ENTITY lfloor "&#8970;">
-<!ENTITY lowast "&#8727;">
-<!ENTITY loz "&#9674;">
-<!ENTITY lrm "&#8206;">
-<!ENTITY lsaquo "&#8249;">
-<!ENTITY lsquo "&#8216;">
-<!ENTITY lt "&#60;">
-<!ENTITY macr "&#175;">
-<!ENTITY mdash "&#8212;">
-<!ENTITY micro "&#181;">
-<!ENTITY middot "&#183;">
-<!ENTITY minus "&#8722;">
-<!ENTITY Mu "&#924;">
-<!ENTITY mu "&#956;">
-<!ENTITY nabla "&#8711;">
-<!ENTITY nbsp "&#160;">
-<!ENTITY ndash "&#8211;">
-<!ENTITY ne "&#8800;">
-<!ENTITY ni "&#8715;">
-<!ENTITY not "&#172;">
-<!ENTITY notin "&#8713;">
-<!ENTITY nsub "&#8836;">
-<!ENTITY Ntilde "&#209;">
-<!ENTITY ntilde "&#241;">
-<!ENTITY Nu "&#925;">
-<!ENTITY nu "&#957;">
-<!ENTITY Oacute "&#211;">
-<!ENTITY oacute "&#243;">
-<!ENTITY Ocirc "&#212;">
-<!ENTITY ocirc "&#244;">
-<!ENTITY OElig "&#338;">
-<!ENTITY oelig "&#339;">
-<!ENTITY Ograve "&#210;">
-<!ENTITY ograve "&#242;">
-<!ENTITY oline "&#8254;">
-<!ENTITY Omega "&#937;">
-<!ENTITY omega "&#969;">
-<!ENTITY Omicron "&#927;">
-<!ENTITY omicron "&#959;">
-<!ENTITY oplus "&#8853;">
-<!ENTITY or "&#8870;">
-<!ENTITY ordf "&#170;">
-<!ENTITY ordm "&#186;">
-<!ENTITY Oslash "&#216;">
-<!ENTITY oslash "&#248;">
-<!ENTITY Otilde "&#213;">
-<!ENTITY otilde "&#245;">
-<!ENTITY otimes "&#8855;">
-<!ENTITY Ouml "&#214;">
-<!ENTITY ouml "&#246;">
-<!ENTITY para "&#182;">
-<!ENTITY part "&#8706;">
-<!ENTITY permil "&#8240;">
-<!ENTITY perp "&#8869;">
-<!ENTITY Phi "&#934;">
-<!ENTITY phi "&#966;">
-<!ENTITY Pi "&#928;">
-<!ENTITY pi "&#960;">
-<!ENTITY piv "&#982;">
-<!ENTITY plusmn "&#177;">
-<!ENTITY pound "&#163;">
-<!ENTITY prime "&#8242;">
-<!ENTITY Prime "&#8243;">
-<!ENTITY prod "&#8719;">
-<!ENTITY prop "&#8733;">
-<!ENTITY Psi "&#936;">
-<!ENTITY psi "&#968;">
-<!ENTITY quot "&#34;">
-<!ENTITY radic "&#8730;">
-<!ENTITY rang "&#9002;">
-<!ENTITY raquo "&#187;">
-<!ENTITY rarr "&#8594;">
-<!ENTITY rArr "&#8658;">
-<!ENTITY rceil "&#8969;">
-<!ENTITY rdquo "&#8221;">
-<!ENTITY real "&#8476;">
-<!ENTITY reg "&#174;">
-<!ENTITY rfloor "&#8971;">
-<!ENTITY Rho "&#929;">
-<!ENTITY rho "&#961;">
-<!ENTITY rlm "&#8207;">
-<!ENTITY rsaquo "&#8250;">
-<!ENTITY rsquo "&#8217;">
-<!ENTITY sbquo "&#8218;">
-<!ENTITY Scaron "&#352;">
-<!ENTITY scaron "&#353;">
-<!ENTITY sdot "&#8901;">
-<!ENTITY sect "&#167;">
-<!ENTITY shy "&#173;">
-<!ENTITY Sigma "&#931;">
-<!ENTITY sigma "&#963;">
-<!ENTITY sigmaf "&#962;">
-<!ENTITY sim "&#8764;">
-<!ENTITY spades "&#9824;">
-<!ENTITY sub "&#8834;">
-<!ENTITY sube "&#8838;">
-<!ENTITY sum "&#8721;">
-<!ENTITY sup "&#8835;">
-<!ENTITY sup1 "&#185;">
-<!ENTITY sup2 "&#178;">
-<!ENTITY sup3 "&#179;">
-<!ENTITY supe "&#8839;">
-<!ENTITY szlig "&#223;">
-<!ENTITY Tau "&#932;">
-<!ENTITY tau "&#964;">
-<!ENTITY there4 "&#8756;">
-<!ENTITY Theta "&#920;">
-<!ENTITY theta "&#952;">
-<!ENTITY thetasym "&#977;">
-<!ENTITY thinsp "&#8201;">
-<!ENTITY THORN "&#222;">
-<!ENTITY thorn "&#254;">
-<!ENTITY tilde "&#732;">
-<!ENTITY times "&#215;">
-<!ENTITY trade "&#8482;">
-<!ENTITY Uacute "&#218;">
-<!ENTITY uacute "&#250;">
-<!ENTITY uarr "&#8593;">
-<!ENTITY uArr "&#8657;">
-<!ENTITY Ucirc "&#219;">
-<!ENTITY ucirc "&#251;">
-<!ENTITY Ugrave "&#217;">
-<!ENTITY ugrave "&#249;">
-<!ENTITY uml "&#168;">
-<!ENTITY upsih "&#978;">
-<!ENTITY Upsilon "&#933;">
-<!ENTITY upsilon "&#965;">
-<!ENTITY Uuml "&#220;">
-<!ENTITY uuml "&#252;">
-<!ENTITY weierp "&#8472;">
-<!ENTITY Xi "&#926;">
-<!ENTITY xi "&#958;">
-<!ENTITY Yacute "&#221;">
-<!ENTITY yacute "&#253;">
-<!ENTITY yen "&#165;">
-<!ENTITY Yuml "&#376;">
-<!ENTITY yuml "&#255;">
-<!ENTITY Zeta "&#918;">
-<!ENTITY zeta "&#950;">
-<!ENTITY zwj "&#8205;">
-<!ENTITY zwnj "&#8204;">`.replace(/\n/g, ' ');
-
-  /**
-   * A reasonably strict xml declaration.
-   */
-  const XML_DECL = '<?xml version="1.0" standalone="no"?>';
-
-  /**
-   * The beginning of the XML doctype declaration.
-   */
-  const DOCTYPE_START = `<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [`;
-
-  /**
-   * The end of the XML docype declaration.
-   */
-  const DOCTYPE_END = ']>';
-
-  /**
-   * A full header for an SVG XML document.
-   */
-  const SVG_XML_HEADER = `${XML_DECL}
-    ${DOCTYPE_START}${HTML_ENTITIES}${DOCTYPE_END}`;
 
     void Promise.all([...diagrams].map(renderOneMarmaid));
   });
@@ -7816,7 +7530,7 @@ a.anchor-link {
     }
     </style></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Estructuras-de-datos-b%C3%A1sicas">1 Estructuras de datos básicas</a><ol><li><a href="#Listas-(list)">1.1 Listas (list)</a><ol><li><a href="#Acceso-a-los-elementos-de-una-lista">1.1.1 Acceso a los elementos de una lista</a></li><li><a href="#Modificar-una-lista">1.1.2 Modificar una lista</a></li><li><a href="#Operaciones-frecuentes">1.1.3 Operaciones frecuentes</a></li></ol></li><li><a href="#Tuplas-(tuple)">1.2 Tuplas (tuple)</a><ol><li><a href="#Acceso">1.2.1 Acceso</a></li><li><a href="#Desempaquetado">1.2.2 Desempaquetado</a></li></ol></li><li><a href="#Conjuntos-(set)">1.3 Conjuntos (set)</a></li><li><a href="#Diccionarios-(dict)">1.4 Diccionarios (dict)</a></li></ol></li><li><a href="#Comparaci%C3%B3n-de-las-estructuras">2 Comparación de las estructuras</a></li><li><a href="#Ejercicio.-Inscripciones-a-un-taller-de-cocina">3 Ejercicio. Inscripciones a un taller de cocina</a></li><li><a href="#Referencias">4 Referencias</a></li></ol></div>
+<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Estructuras-de-datos-b%C3%A1sicas">1 Estructuras de datos básicas</a><ol><li><a href="#Listas-(list)">1.1 Listas (list)</a><ol><li><a href="#Acceso-a-los-elementos-de-una-lista">1.1.1 Acceso a los elementos de una lista</a></li><li><a href="#Modificar-una-lista">1.1.2 Modificar una lista</a></li><li><a href="#Operaciones-frecuentes">1.1.3 Operaciones frecuentes</a></li></ol></li><li><a href="#Tuplas-(tuple)">1.2 Tuplas (tuple)</a><ol><li><a href="#Acceso">1.2.1 Acceso</a></li><li><a href="#Desempaquetado">1.2.2 Desempaquetado</a></li></ol></li><li><a href="#Conjuntos-(set)">1.3 Conjuntos (set)</a></li></ol></li><li><a href="#Comparaci%C3%B3n-de-las-estructuras">2 Comparación de las estructuras</a></li><li><a href="#Transformaciones">3 Transformaciones</a></li><li><a href="#Ejercicio.-Inscripciones-a-un-taller-de-cocina">4 Ejercicio. Inscripciones a un taller de cocina</a></li><li><a href="#Referencias">5 Referencias</a></li></ol></div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4c7fd7db-c2e0-4c62-9c4f-acc4a0069325">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7839,8 +7553,6 @@ a.anchor-link {
 <li><p>Tuplas (tuple)</p>
 </li>
 <li><p>Conjuntos (set)</p>
-</li>
-<li><p>Diccionarios (dict)</p>
 </li>
 </ul>
 </div>
@@ -7963,7 +7675,8 @@ plátano
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Operaciones-frecuentes">1.1.3 Operaciones frecuentes<a class="anchor-link" href="#Operaciones-frecuentes">¶</a></h3>
+<h3 id="Operaciones-frecuentes">1.1.3 Operaciones frecuentes<a class="anchor-link" href="#Operaciones-frecuentes">¶</a></h3><p>Las operaciones definidas sobre listas las podemos encontrar en la documentación de Python (<a href="https://docs.python.org/es/3/tutorial/datastructures.html">https://docs.python.org/es/3/tutorial/datastructures.html</a>).
+No obstante, a continuación podemos ver una muestra:</p>
 </div>
 </div>
 </div>
@@ -7982,6 +7695,10 @@ plátano
 <span class="nb">print</span><span class="p">(</span><span class="n">frutas</span><span class="p">)</span>
 <span class="n">frutas</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>      <span class="c1"># Eliminar el último</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">frutas</span><span class="p">)</span>
+<span class="n">frutas</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>      <span class="c1"># Ordenación lexicográfica</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">frutas</span><span class="p">)</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">frutas</span><span class="p">)</span>     <span class="c1"># Tamaño, o longitud, de la lista </span>
 </pre></div>
 </div>
 </div>
@@ -7997,28 +7714,10 @@ plátano
 ['manzana', 'fresa', 'uva', 'plátano', 'kiwi']
 ['manzana', 'fresa', 'plátano', 'kiwi']
 ['manzana', 'fresa', 'plátano']
+['fresa', 'manzana', 'plátano']
 </pre>
 </div>
 </div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5bd1652d-8fef-4330-8194-f5dfa87eb3cc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">frutas</span><span class="p">)</span>    <span class="c1"># Longitud</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>3</pre>
@@ -8032,7 +7731,7 @@ plátano
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Tuplas-(tuple)">1.2 Tuplas (tuple)<a class="anchor-link" href="#Tuplas-(tuple)">¶</a></h2><p>Las tuplas son ordenadas pero inmutables. Una vez creadas, no pueden modificarse.
+<h2 id="Tuplas-(tuple)">1.2 Tuplas (tuple)<a class="anchor-link" href="#Tuplas-(tuple)">¶</a></h2><p>Las tuplas son objetos inmutables pero con orden. Una vez creadas, no pueden modificarse.
 Se suelen usar para coordenadas, fechas fijas...</p>
 </div>
 </div>
@@ -8140,43 +7839,8 @@ Se suelen usar para coordenadas, fechas fijas...</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Conjuntos-(set)">1.3 Conjuntos (set)<a class="anchor-link" href="#Conjuntos-(set)">¶</a></h2><p>Los conjuntos almacenan elementos sin orden y sin duplicados.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1119388e-d772-4dae-9c3d-bb0011aa71ca">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>{1, 2, 3, 4}
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aec70345-dbef-4817-ae8b-b34e8ff2dc83">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Las operaciones disponibles son:</p>
+<h2 id="Conjuntos-(set)">1.3 Conjuntos (set)<a class="anchor-link" href="#Conjuntos-(set)">¶</a></h2><p>Los conjuntos almacenan elementos sin orden y sin duplicados (<a href="https://docs.python.org/es/3/tutorial/datastructures.html#sets">https://docs.python.org/es/3/tutorial/datastructures.html#sets</a>).
+Algunas operaciones sobre conjuntos son:</p>
 </div>
 </div>
 </div>
@@ -8187,7 +7851,10 @@ Se suelen usar para coordenadas, fechas fijas...</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">numeros</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># Añade</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">numeros</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>  <span class="c1"># Def un cto con {}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span>
+<span class="n">numeros</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># Añade</span>
+<span class="n">numeros</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1"># Añade</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span>
 <span class="n">numeros</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Elimina</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numeros</span><span class="p">)</span>
@@ -8200,6 +7867,8 @@ Se suelen usar para coordenadas, fechas fijas...</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">|</span> <span class="n">B</span><span class="p">)</span>   <span class="c1"># Unión</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">&amp;</span> <span class="n">B</span><span class="p">)</span>   <span class="c1"># Intersección</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span>   <span class="c1"># Diferencia</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="ow">in</span> <span class="n">A</span><span class="p">)</span>      <span class="c1"># pertenencia, comprueba si un elemento pertenece a un conjunto</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">44</span> <span class="ow">in</span> <span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8211,188 +7880,16 @@ Se suelen usar para coordenadas, fechas fijas...</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>{1, 2, 3, 4, 5}
+<pre>{1, 2, 3, 4}
+{1, 2, 3, 4, 5}
 {1, 3, 4, 5}
 ---
 {2, 3, 4, 5, 6}
 {4}
 {2, 6}
+True
+False
 </pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4bf8b8c8-f3ce-406a-8145-220408699a1d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Para comprobar si un elemento pertenece a un conjunto, se utiliza el operador in, que devuelve un valor booleano (<code>True</code> o <code>False</code>).</p>
-<p>La sintáxis es:</p>
-<div class="highlight"><pre><span></span>         <span class="n">elemento</span> <span class="ow">in</span> <span class="n">conjunto</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=64157211-e487-4e48-beb7-9aa6cd4f26e9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="mi">4</span> <span class="ow">in</span> <span class="n">A</span><span class="p">,</span> <span class="mi">44</span> <span class="ow">in</span> <span class="n">A</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(True, False)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=34c72b76-f401-4cb2-bda7-fed18f7421ac">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Diccionarios-(dict)">1.4 Diccionarios (dict)<a class="anchor-link" href="#Diccionarios-(dict)">¶</a></h2><p>Los diccionarios almacenan información mediante pares clave-valor. La clave es única.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8bd15b0b-5051-4911-962a-468bd3b1958f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">persona</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"nombre"</span><span class="p">:</span> <span class="s2">"Sonia"</span><span class="p">,</span>
-    <span class="s2">"edad"</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
-    <span class="s2">"ciudad"</span><span class="p">:</span> <span class="s2">"Madrid"</span>
-<span class="p">}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>{'nombre': 'Sonia', 'edad': 25, 'ciudad': 'Madrid'}
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aa264b5f-a3eb-47f2-a778-93341f7e3c14">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Para acceder a los valores del diccionario usamos <code>dicc[calve]</code></p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=18a20d73-9d51-4477-99af-e6c52e4a26fc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="p">[</span><span class="s2">"nombre"</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="p">[</span><span class="s2">"edad"</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Sonia
-25
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=41cedd6d-80be-4699-97ba-39c3fd28a7c1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Podemos insertar/modificar los valores de un diccionario, las claves no.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c0459ed8-4c87-4309-bdc2-a4b6bb5e06a6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">persona</span><span class="p">[</span><span class="s2">"edad"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">26</span>
-<span class="n">persona</span><span class="p">[</span><span class="s2">"profesion"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Matemática"</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>{'nombre': 'Sonia', 'edad': 26, 'ciudad': 'Madrid', 'profesion': 'Matemática'}
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89362b4a-6207-4168-af02-4ee622e9c2f5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Podemos eliminar una entrada o fila</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=230dd240-7626-4e46-a3ee-c2ffe27e3d91">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">persona</span><span class="p">[</span><span class="s1">'ciudad'</span><span class="p">]</span>
-</pre></div>
 </div>
 </div>
 </div>
@@ -8431,14 +7928,53 @@ Se suelen usar para coordenadas, fechas fijas...</p>
 <td style="text-align:center">Sí</td>
 <td style="text-align:center">No</td>
 </tr>
-<tr>
-<td>Diccionario</td>
-<td style="text-align:center">Sí</td>
-<td style="text-align:center">Sí</td>
-<td style="text-align:center">Claves únicas</td>
-</tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a8aa511a-382e-4b18-a286-c108feff9e65">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Transformaciones">3 Transformaciones<a class="anchor-link" href="#Transformaciones">¶</a></h1><p>Una estructura de datos se puede transformar en otra</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=581b2384-b13c-45b1-a698-e6feba3f5d0a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Lista [] con corchetes </span>
+<span class="n">tuple_A</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tuple_A</span><span class="p">,</span> <span class="s2">"   Obs: tupla ( ) con paréntesis"</span><span class="p">)</span>
+<span class="n">set_A</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">set_A</span><span class="p">,</span> <span class="s2">"   Obs: cto { } con llaves"</span><span class="p">)</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span>  <span class="c1"># cto { } con llaves</span>
+<span class="n">list_B</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_B</span><span class="p">,</span> <span class="s2">"   Obs:  Lista [] con corchetes"</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>(3, 5, 1, 4, 4, 3, 2, 1)    Obs: tupla ( ) con paréntesis
+{1, 2, 3, 4, 5}    Obs: cto { } con llaves
+[1, 2, 5, 6]    Obs:  Lista [] con corchetes
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -8448,7 +7984,7 @@ Se suelen usar para coordenadas, fechas fijas...</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Ejercicio.-Inscripciones-a-un-taller-de-cocina">3 Ejercicio. Inscripciones a un taller de cocina<a class="anchor-link" href="#Ejercicio.-Inscripciones-a-un-taller-de-cocina">¶</a></h1><p>En un taller de cocina algunas personas se han apuntado más de una vez por error.
+<h1 id="Ejercicio.-Inscripciones-a-un-taller-de-cocina">4 Ejercicio. Inscripciones a un taller de cocina<a class="anchor-link" href="#Ejercicio.-Inscripciones-a-un-taller-de-cocina">¶</a></h1><p>En un taller de cocina algunas personas se han apuntado más de una vez por error.
 Utiliza una lista y un conjunto para ver la diferencia.</p>
 </div>
 </div>
@@ -8474,15 +8010,15 @@ Utiliza una lista y un conjunto para ver la diferencia.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Realiza las siguientes acciones:</p>
 <ol>
-<li><p>Muestra la lista.</p>
+<li><p>Muestra la lista de inscripciones.</p>
 </li>
-<li><p>\¿Cuántas inscripciones hay?.</p>
+<li><p>¿Cuántas inscripciones hay?.</p>
 </li>
 <li><p>Añade a Carlos al final.</p>
 </li>
 <li><p>Vuelve a mostrar la lista y el número de inscripciones.</p>
 </li>
-<li><p>Ahora convierte la lista en un conjunto. Pista: set(inscripciones) crea un conjunto a partir de la lista de inscripciones.</p>
+<li><p>Ahora convierte la lista en un conjunto.</p>
 </li>
 <li><p>Muestra el conjunto.</p>
 </li>
@@ -8505,7 +8041,7 @@ Utiliza una lista y un conjunto para ver la diferencia.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 1. Muestra la lista.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 1. Muestra la lista de inscripciones.</span>
 </pre></div>
 </div>
 </div>
@@ -8518,7 +8054,7 @@ Utiliza una lista y un conjunto para ver la diferencia.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 2. \¿Cuántas inscripciones hay?.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 2. ¿Cuántas inscripciones hay?.</span>
 </pre></div>
 </div>
 </div>
@@ -8557,7 +8093,7 @@ Utiliza una lista y un conjunto para ver la diferencia.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 5. Ahora convierte la lista en un conjunto. Pista: set(inscripciones) crea un conjunto a partir de la lista de inscripciones.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 5. Ahora convierte la lista en un conjunto. </span>
 </pre></div>
 </div>
 </div>
@@ -8634,24 +8170,11 @@ Utiliza una lista y un conjunto para ver la diferencia.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Referencias">4 Referencias<a class="anchor-link" href="#Referencias">¶</a></h1><ul>
+<h1 id="Referencias">5 Referencias<a class="anchor-link" href="#Referencias">¶</a></h1><ul>
 <li><a href="http://docs.python.org.ar/tutorial/pdfs/TutorialPython3.pdf">Tutorial de Python. Por Guido Van Rossum</a></li>
 <li><a href="https://www.python.org/dev/peps/pep-0008/">Guía de estilo de código Python</a></li>
 <li><a href="http://www.garceta.es/libro.php?ISBN=978-84-1622-883-6">Big Data. Análisis de datos con Python. Sarasa Cabezuelo, Antonio; García Ruiz, Yolanda Aditorial Garceta. ISBN: 978-84-1622-883-6</a></li>
 </ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=60638998-5c3c-453c-8a57-ee05f56c8d40">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
 </div>
 </div>
 </div>
