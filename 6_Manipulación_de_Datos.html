@@ -7530,7 +7530,7 @@ a.anchor-link {
     }
     </style></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Exploraci%C3%B3n-y-manipulaci%C3%B3n-de-Datos-con-Pandas">1 Exploración y manipulación de Datos con Pandas</a><ol><li><a href="#Crear-un-DataFrame-manualmente:">1.1 Crear un DataFrame manualmente:</a></li><li><a href="#Importar-los-datos-desde-un-fichero">1.2 Importar los datos desde un fichero</a></li><li><a href="#Explorar-filas-y-columnas">1.3 Explorar filas y columnas</a></li><li><a href="#Filtrar">1.4 Filtrar</a></li><li><a href="#Ordenar">1.5 Ordenar</a></li><li><a href="#Crear-nuevas-columnas">1.6 Crear nuevas columnas</a></li><li><a href="#Eliminar-columnas">1.7 Eliminar columnas</a></li><li><a href="#Renombrar-columnas">1.8 Renombrar columnas</a></li><li><a href="#Valores-nulos">1.9 Valores nulos</a></li><li><a href="#Eliminar-filas-con-datos-vac%C3%ADos:">1.10 Eliminar filas con datos vacíos:</a></li><li><a href="#Operaciones-sobre-una-columna-num%C3%A9rica">1.11 Operaciones sobre una columna numérica</a></li><li><a href="#Guardar-datos">1.12 Guardar datos</a></li></ol></li></ol></div>
+<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Exploraci%C3%B3n-y-manipulaci%C3%B3n-de-Datos-con-Pandas">1 Exploración y manipulación de Datos con Pandas</a><ol><li><a href="#Crear-un-DataFrame-manualmente:">1.1 Crear un DataFrame manualmente:</a></li><li><a href="#Importar-los-datos-desde-un-fichero">1.2 Importar los datos desde un fichero</a></li><li><a href="#Explorar-filas-y-columnas">1.3 Explorar filas y columnas</a></li><li><a href="#Filtrar">1.4 Filtrar</a></li><li><a href="#Ordenar">1.5 Ordenar</a></li><li><a href="#Crear-nuevas-columnas">1.6 Crear nuevas columnas</a></li><li><a href="#Eliminar-columnas">1.7 Eliminar columnas</a></li><li><a href="#Renombrar-columnas">1.8 Renombrar columnas</a></li><li><a href="#A%C3%B1adir-una-fila-con-un-valor-nulo">1.9 Añadir una fila con un valor nulo</a></li><li><a href="#Valores-nulos">1.10 Valores nulos</a></li><li><a href="#Eliminar-filas-con-datos-vac%C3%ADos:">1.11 Eliminar filas con datos vacíos:</a></li><li><a href="#Operaciones-sobre-una-columna-num%C3%A9rica">1.12 Operaciones sobre una columna numérica</a></li><li><a href="#Guardar-datos">1.13 Guardar datos</a></li></ol></li><li><a href="#Ejercicio-de-manipulaci%C3%B3n-de-datos">2 Ejercicio de manipulación de datos</a></li></ol></div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=14414c25-f023-45b3-8528-bd3255cf32a7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7608,7 +7608,8 @@ Podemos crear un DataFrame manualmente o importarlo desde un fichero.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Importar-los-datos-desde-un-fichero">1.2 Importar los datos desde un fichero<a class="anchor-link" href="#Importar-los-datos-desde-un-fichero">¶</a></h2><p>A la vez que importamos los datos, creamos el dataframe. Los datos pueden estar almacenados en distintos formatos. Los más habituales son:</p>
+<h2 id="Importar-los-datos-desde-un-fichero">1.2 Importar los datos desde un fichero<a class="anchor-link" href="#Importar-los-datos-desde-un-fichero">¶</a></h2><p>A la vez que importamos los datos, se crea el dataframe.
+Los datos pueden estar almacenados en distintos formatos, nosotros vamos a trabajar con ficheros cvs y excel.</p>
 <p><em><strong>Leer un archivo CSV</strong></em></p>
 <p>Un archivo CSV es un texto donde las columnas están separadas por comas.</p>
 </div>
@@ -7621,8 +7622,9 @@ Podemos crear un DataFrame manualmente o importarlo desde un fichero.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"./Data/Nombre_Edad_Ciudad.csv"</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>    <span class="c1"># Muestra las primeras filas</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_excel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"./Data/Nombre_Edad_Ciudad.csv"</span><span class="p">)</span>
+<span class="c1"># número de filas y columnas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7632,72 +7634,10 @@ Podemos crear un DataFrame manualmente o importarlo desde un fichero.</p>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>Nombre</th>
-<th>Edad</th>
-<th>Ciudad</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>Sonia</td>
-<td>24</td>
-<td>Madrid</td>
-</tr>
-<tr>
-<th>1</th>
-<td>Carmen</td>
-<td>31</td>
-<td>Sevilla</td>
-</tr>
-<tr>
-<th>2</th>
-<td>Conchi</td>
-<td>28</td>
-<td>Valencia</td>
-</tr>
-<tr>
-<th>3</th>
-<td>Jose</td>
-<td>40</td>
-<td>Segovia</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=51cbb213-d356-49ca-9123-4b26d837ce5c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>(3, 3)
+</pre>
 </div>
 </div>
 </div>
@@ -7721,7 +7661,8 @@ Podemos crear un DataFrame manualmente o importarlo desde un fichero.</p>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">openpyxl</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"./Data/Nombre_Edad_Ciudad.xlsx"</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>    <span class="c1"># Muestra las primeras filas</span>
+<span class="c1"># número de filas y columnas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7731,59 +7672,10 @@ Podemos crear un DataFrame manualmente o importarlo desde un fichero.</p>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>Nombre</th>
-<th>Edad</th>
-<th>Ciudad</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>Sonia</td>
-<td>24</td>
-<td>Madrid</td>
-</tr>
-<tr>
-<th>1</th>
-<td>Carmen</td>
-<td>31</td>
-<td>Sevilla</td>
-</tr>
-<tr>
-<th>2</th>
-<td>Marta</td>
-<td>28</td>
-<td>Valencia</td>
-</tr>
-<tr>
-<th>3</th>
-<td>Jose</td>
-<td>40</td>
-<td>Segovia</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>(6, 3)
+</pre>
 </div>
 </div>
 </div>
@@ -7865,6 +7757,12 @@ Podemos crear un DataFrame manualmente o importarlo desde un fichero.</p>
 <td>40</td>
 <td>Segovia</td>
 </tr>
+<tr>
+<th>4</th>
+<td>Nieves</td>
+<td>16</td>
+<td>Madrid</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -7916,12 +7814,6 @@ Podemos crear un DataFrame manualmente o importarlo desde un fichero.</p>
 </thead>
 <tbody>
 <tr>
-<th>0</th>
-<td>Sonia</td>
-<td>24</td>
-<td>Madrid</td>
-</tr>
-<tr>
 <th>1</th>
 <td>Carmen</td>
 <td>31</td>
@@ -7939,9 +7831,56 @@ Podemos crear un DataFrame manualmente o importarlo desde un fichero.</p>
 <td>40</td>
 <td>Segovia</td>
 </tr>
+<tr>
+<th>4</th>
+<td>Nieves</td>
+<td>16</td>
+<td>Madrid</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Carlitos</td>
+<td>12</td>
+<td>Madrid</td>
+</tr>
 </tbody>
 </table>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5cfc1adb-1aac-484e-9c22-b12ed2dbe7d8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>También puede tener un gran número de columnas. en este caso es interesante listar las columnas que tenemos.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fe209c8e-e238-4eba-ab72-974982d8fd09">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Index(['Nombre', 'Edad', 'Ciudad'], dtype='object')
+</pre>
 </div>
 </div>
 </div>
@@ -7952,35 +7891,7 @@ Podemos crear un DataFrame manualmente o importarlo desde un fichero.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Puede interesarnos una  varias columnas. Podemos seleccionar el número de columnas que queramos mediante los corchetes.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=a9027c76-cb52-43a9-b108-75a59208e3ff">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"Nombre"</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>0     Sonia
-1    Carmen
-2     Marta
-3      Jose
-Name: Nombre, dtype: object</pre>
-</div>
+<p>Además, puede interesarnos ver los datos de algunas columnas concretas. Podemos seleccionar el número de columnas que queramos mediante los corchetes.</p>
 </div>
 </div>
 </div>
@@ -8045,6 +7956,16 @@ Name: Nombre, dtype: object</pre>
 <th>3</th>
 <td>Jose</td>
 <td>40</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Nieves</td>
+<td>16</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Carlitos</td>
+<td>12</td>
 </tr>
 </tbody>
 </table>
@@ -8214,7 +8135,7 @@ Name: Nombre, dtype: object</pre>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Edad"</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">20</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Edad"</span><span class="p">]</span><span class="o">&lt;</span> <span class="mi">40</span><span class="p">)]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Edad"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Edad"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -8267,6 +8188,74 @@ Name: Nombre, dtype: object</pre>
 <td>Marta</td>
 <td>28</td>
 <td>Valencia</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=eda80ce5-26b6-437e-a61e-2cb5ef483f20">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Ciudad"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Madrid"</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Nombre</th>
+<th>Edad</th>
+<th>Ciudad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Sonia</td>
+<td>24</td>
+<td>Madrid</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Nieves</td>
+<td>16</td>
+<td>Madrid</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Carlitos</td>
+<td>12</td>
+<td>Madrid</td>
 </tr>
 </tbody>
 </table>
@@ -8328,6 +8317,18 @@ Name: Nombre, dtype: object</pre>
 </tr>
 </thead>
 <tbody>
+<tr>
+<th>5</th>
+<td>Carlitos</td>
+<td>12</td>
+<td>Madrid</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Nieves</td>
+<td>16</td>
+<td>Madrid</td>
+</tr>
 <tr>
 <th>0</th>
 <td>Sonia</td>
@@ -8426,6 +8427,18 @@ Name: Nombre, dtype: object</pre>
 <td>24</td>
 <td>Madrid</td>
 </tr>
+<tr>
+<th>4</th>
+<td>Nieves</td>
+<td>16</td>
+<td>Madrid</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Carlitos</td>
+<td>12</td>
+<td>Madrid</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -8449,8 +8462,7 @@ Name: Nombre, dtype: object</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Podemos crear nuevas columnas resultado de
-realizar cálculos.</p>
+<p>Podemos crear nuevas columnas resultado de realizar cálculos.</p>
 </div>
 </div>
 </div>
@@ -8527,6 +8539,20 @@ realizar cálculos.</p>
 <td>Segovia</td>
 <td>True</td>
 </tr>
+<tr>
+<th>4</th>
+<td>Nieves</td>
+<td>16</td>
+<td>Madrid</td>
+<td>False</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Carlitos</td>
+<td>12</td>
+<td>Madrid</td>
+<td>False</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -8551,7 +8577,7 @@ realizar cálculos.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">"Menor_edad"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="s2">"Menor_edad"</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -8612,6 +8638,18 @@ realizar cálculos.</p>
 <td>40</td>
 <td>Segovia</td>
 </tr>
+<tr>
+<th>4</th>
+<td>Nieves</td>
+<td>16</td>
+<td>Madrid</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Carlitos</td>
+<td>12</td>
+<td>Madrid</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -8636,7 +8674,7 @@ realizar cálculos.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"Ciudad"</span><span class="p">:</span><span class="s2">"Población"</span><span class="p">})</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Ciudad"</span><span class="p">:</span><span class="s2">"Población"</span><span class="p">})</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -8697,9 +8735,45 @@ realizar cálculos.</p>
 <td>40</td>
 <td>Segovia</td>
 </tr>
+<tr>
+<th>4</th>
+<td>Nieves</td>
+<td>16</td>
+<td>Madrid</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Carlitos</td>
+<td>12</td>
+<td>Madrid</td>
+</tr>
 </tbody>
 </table>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ee0360d1-4277-4fc3-a1a9-d7a5de9cc68d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="A%C3%B1adir-una-fila-con-un-valor-nulo">1.9 Añadir una fila con un valor nulo<a class="anchor-link" href="#A%C3%B1adir-una-fila-con-un-valor-nulo">¶</a></h2><p>Para añadir una fila, decimos que pasada la última fila (len(df)) se edita df.loc[ ] y se le asigna una lista de datos. En este caso, voy a aprovechar que añado una fila para dejar una celda sin dato. Por ejemplo, dejamos la edad sin conocer.</p>
+<p>Aviso: cada vez que ejecutes esta intrucción, se añade una fila nueva.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9500480e-0ed5-474e-a777-d116dab8a03f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Amelia"</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"Toledo"</span><span class="p">]</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -8710,7 +8784,7 @@ realizar cálculos.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Valores-nulos">1.9 Valores nulos<a class="anchor-link" href="#Valores-nulos">¶</a></h2>
+<h2 id="Valores-nulos">1.10 Valores nulos<a class="anchor-link" href="#Valores-nulos">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8781,6 +8855,24 @@ realizar cálculos.</p>
 <td>False</td>
 <td>False</td>
 </tr>
+<tr>
+<th>4</th>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr>
+<th>5</th>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr>
+<th>6</th>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -8794,7 +8886,17 @@ realizar cálculos.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Eliminar-filas-con-datos-vac%C3%ADos:">1.10 Eliminar filas con datos vacíos:<a class="anchor-link" href="#Eliminar-filas-con-datos-vac%C3%ADos:">¶</a></h2>
+<h2 id="Eliminar-filas-con-datos-vac%C3%ADos:">1.11 Eliminar filas con datos vacíos:<a class="anchor-link" href="#Eliminar-filas-con-datos-vac%C3%ADos:">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d096e8b-0356-4421-8f3b-0b38b18e7fba">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>En ocasiones, no nos interesan las filas que no son completas. En estos casos se eliminan dichas filas.</p>
 </div>
 </div>
 </div>
@@ -8865,6 +8967,18 @@ realizar cálculos.</p>
 <td>40</td>
 <td>Segovia</td>
 </tr>
+<tr>
+<th>4</th>
+<td>Nieves</td>
+<td>16</td>
+<td>Madrid</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Carlitos</td>
+<td>12</td>
+<td>Madrid</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -8878,7 +8992,7 @@ realizar cálculos.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Operaciones-sobre-una-columna-num%C3%A9rica">1.11 Operaciones sobre una columna numérica<a class="anchor-link" href="#Operaciones-sobre-una-columna-num%C3%A9rica">¶</a></h2>
+<h2 id="Operaciones-sobre-una-columna-num%C3%A9rica">1.12 Operaciones sobre una columna numérica<a class="anchor-link" href="#Operaciones-sobre-una-columna-num%C3%A9rica">¶</a></h2><p>A continuación ponemos una muestra, para más detalle se puede consultar la documentación de Python (<a href="https://docs.python.org/es/3.14/builtins/functions.html">https://docs.python.org/es/3.14/builtins/functions.html</a>).</p>
 </div>
 </div>
 </div>
@@ -8901,7 +9015,7 @@ realizar cálculos.</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>np.float64(30.75)</pre>
+<pre>np.float64(25.166666666666668)</pre>
 </div>
 </div>
 </div>
@@ -8925,7 +9039,7 @@ realizar cálculos.</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>np.int64(40)</pre>
+<pre>40</pre>
 </div>
 </div>
 </div>
@@ -8949,7 +9063,7 @@ realizar cálculos.</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>np.int64(24)</pre>
+<pre>12</pre>
 </div>
 </div>
 </div>
@@ -8973,7 +9087,7 @@ realizar cálculos.</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>np.int64(123)</pre>
+<pre>151</pre>
 </div>
 </div>
 </div>
@@ -8984,7 +9098,7 @@ realizar cálculos.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Guardar-datos">1.12 Guardar datos<a class="anchor-link" href="#Guardar-datos">¶</a></h2>
+<h2 id="Guardar-datos">1.13 Guardar datos<a class="anchor-link" href="#Guardar-datos">¶</a></h2>
 </div>
 </div>
 </div>
@@ -9002,6 +9116,31 @@ realizar cálculos.</p>
 <span class="c1"># Guardar como Excel:</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">"./Data/nuevo.xlsx"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=81ecbb4a-0ad3-481c-ba0f-608aedb2dd9d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Ejercicio-de-manipulaci%C3%B3n-de-datos">2 Ejercicio de manipulación de datos<a class="anchor-link" href="#Ejercicio-de-manipulaci%C3%B3n-de-datos">¶</a></h1><p>Ahora vamos a aplicar los conceptos aprendidos en este tema a un conjunto de datos real, tomados de UniversiData y en concreto de la Complutense</p>
+<p><a href="https://www.universidata.es/datasets/ucm-acceso">https://www.universidata.es/datasets/ucm-acceso</a></p>
+<p>De la anterior dirección descargamos los fichero de <code>UCM-Acceso-2024-25-Anonimizado</code>, tanto el csv como el excel.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d17fc7dc-d4ef-48a3-be65-56664883e1f9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
