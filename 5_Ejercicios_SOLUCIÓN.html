@@ -7530,7 +7530,7 @@ a.anchor-link {
     }
     </style></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Ejercicios">1 Ejercicios</a><ol><li><a href="#1.-A%C3%B1os-bisiestos">1.1 1. Años bisiestos</a></li><li><a href="#2.-Tabla-de-mutiplicar">1.2 2. Tabla de mutiplicar</a></li><li><a href="#3.-sumar-los-primeros-n%C3%BAmeros-enteros-hasta-uno-dado">1.3 3. sumar los primeros números enteros hasta uno dado</a></li><li><a href="#Lista-de-los-primeros-n-a%C3%B1os-bisiestos.">1.4 Lista de los primeros n años bisiestos.</a></li><li><a href="#Buscar-el-siguiente-a%C3%B1o-bisiesto">1.5 Buscar el siguiente año bisiesto</a></li></ol></li></ol></div>
+<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Ejercicios">1 Ejercicios</a><ol><li><a href="#1.-A%C3%B1os-bisiestos">1.1 1. Años bisiestos</a></li><li><a href="#2.-Tabla-de-mutiplicar">1.2 2. Tabla de mutiplicar</a></li><li><a href="#3.-Sumar-los-primeros-n%C3%BAmeros-enteros-hasta-uno-dado">1.3 3. Sumar los primeros números enteros hasta uno dado</a></li><li><a href="#Lista-de-los-primeros-n-a%C3%B1os-bisiestos.">1.4 Lista de los primeros n años bisiestos.</a><ol><li><a href="#%C2%BFSe-puede-hacer-este-ejercicio-con-un-for?">1.4.1 ¿Se puede hacer este ejercicio con un for ?</a></li></ol></li><li><a href="#Buscar-el-siguiente-a%C3%B1o-bisiesto">1.5 Buscar el siguiente año bisiesto</a><ol><li><a href="#%C2%BFEste-ejercicio-se-puede-hacer-con-un-for?.">1.5.1 ¿Este ejercicio se puede hacer con un for ?.</a></li></ol></li></ol></li></ol></div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3e9ce84-b331-44c2-849a-d516f75782f7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7555,12 +7555,22 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">es_bisiesto</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Años que NO son divisibles por 4</span>
         <span class="n">resultado</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">elif</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>    <span class="c1"># Aquí llegan los a % 4 == 0</span>
-        <span class="n">resultado</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># De los div de 4, los que no son div 100 -&gt; son bis (2004, 2008, 2012)</span>
-    <span class="k">elif</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>    <span class="c1"># Aquí llegan los a % 4 == 0 y a % 100 == 0 (2000, 2100, 2200,2300, 2400), me quedo con los div 400 </span>
+
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>   
+        <span class="c1"># Años divisibles por 4 pero NO por 100</span>
+        <span class="c1"># Ejemplos: 2004, 2008, 2012</span>
         <span class="n">resultado</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">else</span><span class="p">:</span>   <span class="c1"># Aquí llegan (2100, 2200,2300, 2500)</span>
+
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>    
+        <span class="c1"># Años divisibles por 4, por 100 y por 400</span>
+        <span class="c1"># Ejemplos: 2000, 2400</span>
+        <span class="n">resultado</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">else</span><span class="p">:</span>   
+        <span class="c1"># Años divisibles por 4 y por 100, pero NO por 400</span>
+        <span class="c1"># Ejemplos: 2100, 2200, 2300, 2500</span>
         <span class="n">resultado</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="k">return</span> <span class="n">resultado</span>
@@ -7678,7 +7688,7 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=60aa15fc-86a8-4d3e-a12d-b16b614b6543">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=60aa15fc-86a8-4d3e-a12d-b16b614b6543">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7686,36 +7696,99 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tabla_mult_for</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">n</span> <span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">' = '</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Tabla de multiplicar (for) del número: '</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">' </span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>   <span class="c1"># Secuencia de escape \n es salto de línea </span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span> <span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">' = '</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'---</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
-<span class="c1">#tabla_mult_for(2)</span>
+<span class="n">tabla_mult_for</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">tabla_mult_for</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">tabla_mult_while</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-  <span class="n">resultado</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">):</span>
-    <span class="n">resultado</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">resultado</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">n</span> <span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">' = '</span><span class="p">,</span> <span class="n">resultado</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Tabla de multiplicar (while) del número: '</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">' n</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>   <span class="c1"># Secuencia de escape \n es salto de línea </span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">):</span>
+        <span class="n">resultado</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">resultado</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span> <span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">' = '</span><span class="p">,</span> <span class="n">resultado</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'---</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 
-<span class="c1">#tabla_mult_while(2)</span>
+<span class="n">tabla_mult_while</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">tabla_mult_while</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=72f06e4c-32fa-446e-b0d2-4081d3920738">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#tabla_mult_for(5)</span>
-<span class="c1">#tabla_mult_while(5)</span>
-</pre></div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+Tabla de multiplicar (for) del número:  2  
+
+2 * 1  =  2
+2 * 2  =  4
+2 * 3  =  6
+2 * 4  =  8
+2 * 5  =  10
+2 * 6  =  12
+2 * 7  =  14
+2 * 8  =  16
+2 * 9  =  18
+2 * 10  =  20
+---
+
+
+Tabla de multiplicar (for) del número:  5  
+
+5 * 1  =  5
+5 * 2  =  10
+5 * 3  =  15
+5 * 4  =  20
+5 * 5  =  25
+5 * 6  =  30
+5 * 7  =  35
+5 * 8  =  40
+5 * 9  =  45
+5 * 10  =  50
+---
+
+
+Tabla de multiplicar (while) del número:  2  n
+
+2 * 1  =  2
+2 * 2  =  4
+2 * 3  =  6
+2 * 4  =  8
+2 * 5  =  10
+2 * 6  =  12
+2 * 7  =  14
+2 * 8  =  16
+2 * 9  =  18
+2 * 10  =  20
+---
+
+
+Tabla de multiplicar (while) del número:  5  n
+
+5 * 1  =  5
+5 * 2  =  10
+5 * 3  =  15
+5 * 4  =  20
+5 * 5  =  25
+5 * 6  =  30
+5 * 7  =  35
+5 * 8  =  40
+5 * 9  =  45
+5 * 10  =  50
+---
+
+</pre>
 </div>
 </div>
 </div>
@@ -7726,7 +7799,7 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-sumar-los-primeros-n%C3%BAmeros-enteros-hasta-uno-dado">1.3 3. sumar los primeros números enteros hasta uno dado<a class="anchor-link" href="#3.-sumar-los-primeros-n%C3%BAmeros-enteros-hasta-uno-dado">¶</a></h2><blockquote>
+<h2 id="3.-Sumar-los-primeros-n%C3%BAmeros-enteros-hasta-uno-dado">1.3 3. Sumar los primeros números enteros hasta uno dado<a class="anchor-link" href="#3.-Sumar-los-primeros-n%C3%BAmeros-enteros-hasta-uno-dado">¶</a></h2><blockquote>
 <p>Este ejercicio debes hacerlo con un bucle ¿while o for?</p>
 </blockquote>
 <p>Deseamos sumar los primeros números enteros hasta uno dado. Por ejemplo, si el número es 10, la suma sería 1 + 2 + ... + 10. Por lo tanto, el resultado que devuelve la función es 55.</p>
@@ -7740,12 +7813,33 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">suma_hasta</span><span class="p">(</span><span class="n">lim_sup</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span><span class="nb">int</span><span class="p">:</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sumar_hasta_for</span><span class="p">(</span><span class="n">lim_sup</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Esta función calcula la suma de los enteros desde 1 hasta lim_sup,</span>
 <span class="sd">    incluyendo ambos. Si lim_sup &lt; 1, la función devuelve 0</span>
-<span class="sd">    (puesto que no hay ningún entero entero que cumpla la condición).</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        Suma de 1 + 2 + 3 + ... + lim_sup</span>
 
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; suma_hasta(4)</span>
+<span class="sd">    10</span>
+<span class="sd">    """</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Suma de e los enteros desde 1 hasta '</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="s1">' con for'</span><span class="p">)</span>  
+
+    <span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lim_sup</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">suma</span> <span class="o">=</span> <span class="n">suma</span> <span class="o">+</span> <span class="n">i</span>
+
+    <span class="k">return</span> <span class="n">suma</span>
+
+<span class="k">def</span> <span class="nf">sumar_hasta_while</span><span class="p">(</span><span class="n">lim_sup</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span><span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Esta función calcula la suma de los enteros desde 1 hasta lim_sup,</span>
+<span class="sd">    incluyendo ambos. Si lim_sup &lt; 1, la función devuelve 0</span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">        Suma de 1 + 2 + 3 + ... lim_sup</span>
@@ -7755,6 +7849,9 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <span class="sd">    &gt;&gt;&gt; suma_hasta(4)</span>
 <span class="sd">    10</span>
 <span class="sd">    """</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Suma de e los enteros desde 1 hasta '</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="s1">' con while'</span><span class="p">)</span>  
+
     <span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">lim_sup</span><span class="p">:</span>
@@ -7773,7 +7870,7 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">suma_hasta</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">sumar_hasta_for</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7783,9 +7880,16 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+Suma de e los enteros desde 1 hasta  100  con for
+</pre>
+</div>
+</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>55</pre>
+<pre>5050</pre>
 </div>
 </div>
 </div>
@@ -7797,7 +7901,7 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">suma_hasta</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">sumar_hasta_while</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7807,9 +7911,16 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+Suma de e los enteros desde 1 hasta  100  con while
+</pre>
+</div>
+</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>28</pre>
+<pre>5050</pre>
 </div>
 </div>
 </div>
@@ -7821,7 +7932,7 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">suma_hasta</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">sumar_hasta_for</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7831,6 +7942,13 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+Suma de e los enteros desde 1 hasta  -3  con for
+</pre>
+</div>
+</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>0</pre>
@@ -7845,7 +7963,7 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">suma_hasta</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">sumar_hasta_while</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7855,9 +7973,16 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>
+Suma de e los enteros desde 1 hasta  -3  con while
+</pre>
+</div>
+</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>80200</pre>
+<pre>0</pre>
 </div>
 </div>
 </div>
@@ -7887,6 +8012,7 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
     <span class="n">resultado</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">1900</span>
 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Lista de los '</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">'primeros años bisiestos desde 1900'</span><span class="p">)</span>
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">es_bisiesto</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
             <span class="n">resultado</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -7917,9 +8043,29 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[1904, 1908, 1912, 1916, 1920, 1924, 1928, 1932, 1936, 1940, 1944, 1948, 1952, 1956, 1960]
+<pre>Lista de los  15 primeros años bisiestos desde 1900
+[1904, 1908, 1912, 1916, 1920, 1924, 1928, 1932, 1936, 1940, 1944, 1948, 1952, 1956, 1960]
 </pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=af7438df-9c2d-447d-a8da-f8fc4d3f0934">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%C2%BFSe-puede-hacer-este-ejercicio-con-un-for?">1.4.1 ¿Se puede hacer este ejercicio con un for ?<a class="anchor-link" href="#%C2%BFSe-puede-hacer-este-ejercicio-con-un-for?">¶</a></h3><p>Sí, este ejercicio se puede hacer con <code>for</code>, pero hay una cuestión importante:</p>
+<div style="
+    border: 1px solid black;
+    padding: 15px;
+    margin: 20px;
+">
+<p><em><strong>En este problema el número de años que hay que recorrer no se conoce de antemano, porque queremos encontrar los <code>n</code> primeros bisiestos.</strong></em></p>
+</div>
+<p><em><strong>Esto implicaría hacer un recorrido (<code>for</code>) hasta un número estimado y cortar el bucle cuando llegamos a <code>n</code> y esto es desaconsejable (y feo).</strong></em></p>
+<p><em><strong>Por eso, hacerlo con un bucle <code>while</code> es lo correcto.</strong></em></p>
 </div>
 </div>
 </div>
@@ -7973,6 +8119,29 @@ Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
 2104
 2400
 </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d4083ec9-73b1-444f-9a4e-f13fbe885ce2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%C2%BFEste-ejercicio-se-puede-hacer-con-un-for?.">1.5.1 ¿Este ejercicio se puede hacer con un for ?.<a class="anchor-link" href="#%C2%BFEste-ejercicio-se-puede-hacer-con-un-for?.">¶</a></h3><p><em><strong>Sí, se puede hacer con for, aunque, igual que en el ejercicio anterior, el while es más natural porque no sabemos cuántos años tendremos que comprobar hasta encontrar el siguiente bisiesto.</strong></em></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ea443a78-1edf-43f1-a7e1-bebc85f46edf">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
 </div>
 </div>
 </div>
