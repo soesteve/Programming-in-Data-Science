@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>5_Ejercicios_SOLUCIÓN</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>6_Ejerc_PEATONES</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7530,346 +7530,144 @@ a.anchor-link {
     }
     </style></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Ejercicios">1 Ejercicios</a><ol><li><a href="#1.-A%C3%B1os-bisiestos">1.1 1. Años bisiestos</a></li><li><a href="#2.-Tabla-de-mutiplicar">1.2 2. Tabla de mutiplicar</a></li><li><a href="#3.-Sumar-los-primeros-n%C3%BAmeros-enteros-hasta-uno-dado">1.3 3. Sumar los primeros números enteros hasta uno dado</a></li><li><a href="#Lista-de-los-primeros-n-a%C3%B1os-bisiestos.">1.4 Lista de los primeros n años bisiestos.</a><ol><li><a href="#%C2%BFSe-puede-hacer-este-ejercicio-con-un-for?">1.4.1 ¿Se puede hacer este ejercicio con un for ?</a></li></ol></li><li><a href="#Buscar-el-siguiente-a%C3%B1o-bisiesto">1.5 Buscar el siguiente año bisiesto</a><ol><li><a href="#%C2%BFEste-ejercicio-se-puede-hacer-con-un-for?.">1.5.1 ¿Este ejercicio se puede hacer con un for ?.</a></li></ol></li></ol></li></ol></div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3e9ce84-b331-44c2-849a-d516f75782f7">
+<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Ejercicio-peatones-en-la-pandemia">1 Ejercicio peatones en la pandemia</a><ol><li><a href="#Carga-de-datos-y-exploraci%C3%B3n-del-dataframe">1.1 Carga de datos y exploración del dataframe</a></li><li><a href="#Analizar-y-transformar-los-tipos-de-datos">1.2 Analizar y transformar los tipos de datos</a><ol><li><a href="#Fechas">1.2.1 Fechas</a></li><li><a href="#Horas">1.2.2 Horas</a></li></ol></li><li><a href="#Seleccionar-ciertas-columnas-de-la-tabla,-las-que-me-interesan">1.3 Seleccionar ciertas columnas de la tabla, las que me interesan</a></li><li><a href="#Cambiar-el-nombre-de-la-columna-NOMBRE_VIALpor-DIRECCION.">1.4 Cambiar el nombre de la columna NOMBRE_VIAL por DIRECCION .</a></li><li><a href="#Calcular-el-total-de-peatones-por-d%C3%ADa-de-la-semana">1.5 Calcular el total de peatones por día de la semana</a></li><li><a href="#Crear-un-DataFrame-con-el-distrito-Centro">1.6 Crear un DataFrame con el distrito Centro</a></li><li><a href="#Peatones-de-Madrid-a-las-23:00">1.7 Peatones de Madrid a las 23:00</a></li><li><a href="#Peatones-de-Centro-a-las-23:00">1.8 Peatones de Centro a las 23:00</a></li><li><a href="#Total-de-peatones-de-Madrid-por-mes">1.9 Total de peatones de Madrid por mes</a></li><li><a href="#Calcular-el-total-de-peatones-en-una-fecha-concreta-y-por-distrito">1.10 Calcular el total de peatones en una fecha concreta y por distrito</a></li><li><a href="#Las-10-calles-con-m%C3%A1s-peatones">1.11 Las 10 calles con más peatones</a></li><li><a href="#%C2%BFA-qu%C3%A9-hora-hay-m%C3%A1s-peatones?">1.12 ¿A qué hora hay más peatones?</a></li></ol></li></ol></div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4fbb12ff-097f-4040-ae74-69f83bd71598">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Ejercicios">1 Ejercicios<a class="anchor-link" href="#Ejercicios">¶</a></h1><h2 id="1.-A%C3%B1os-bisiestos">1.1 1. Años bisiestos<a class="anchor-link" href="#1.-A%C3%B1os-bisiestos">¶</a></h2><blockquote>
-<p>En este ejercicio vamos a practicar if - elif. Para ello usaremos el operador <code>%</code> o <strong>módulo</strong> (resto de la división) que devuelve el resto que queda al dividir un número entre otro.
-Por ejemplo, 10 % 3 es 1 porque al dividir 10 entre 3 obtenemos de resto 1.</p>
-</blockquote>
-<p>Un año es bisiesto si es múltiplo de 4, salvo si es múltiplo de 100 en cuyo caso debe ser múltiplo de 400.</p>
-<p>Por ejemplo, Los años bisiestos entre 1998 y 2401 son:, <strong>2000</strong>, 2004, 2008, 2012, 2016, 2020, 2024, 2028, 2032, 2036, 2040, 2044, 2048, 2052, 2056, 2060, 2064, 2068, 2072, 2076, 2080, 2084, 2088, 2092, <strong>2096, 2104</strong>, 2108, 2112, 2116, 2120, 2124, 2128, 2132, 2136, 2140, 2144, 2148, 2152, 2156, 2160, 2164, 2168, 2172, 2176, 2180, 2184, 2188, 2192, <strong>2196, 2204</strong>, 2208, 2212, 2216, 2220, 2224, 2228, 2232, 2236, 2240, 2244, 2248, 2252, 2256, 2260, 2264, 2268, 2272, 2276, 2280, 2284, 2288, 2292, <strong>2296, 2304</strong>, 2308, 2312, 2316, 2320, 2324, 2328, 2332, 2336, 2340, 2344, 2348, 2352, 2356, 2360, 2364, 2368, 2372, 2376, 2380, 2384, 2388, 2392, 2396, <strong>2400</strong></p>
-<p>Implementa el cuerpo de la siguiente función.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9eda9b16-eaeb-49ed-9db1-ef9c3cdcb29a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">es_bisiesto</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="c1"># Años que NO son divisibles por 4</span>
-        <span class="n">resultado</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="k">elif</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>   
-        <span class="c1"># Años divisibles por 4 pero NO por 100</span>
-        <span class="c1"># Ejemplos: 2004, 2008, 2012</span>
-        <span class="n">resultado</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="k">elif</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>    
-        <span class="c1"># Años divisibles por 4, por 100 y por 400</span>
-        <span class="c1"># Ejemplos: 2000, 2400</span>
-        <span class="n">resultado</span> <span class="o">=</span> <span class="kc">True</span>
-
-    <span class="k">else</span><span class="p">:</span>   
-        <span class="c1"># Años divisibles por 4 y por 100, pero NO por 400</span>
-        <span class="c1"># Ejemplos: 2100, 2200, 2300, 2500</span>
-        <span class="n">resultado</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="k">return</span> <span class="n">resultado</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1cce8eeb-15ca-4bbe-a649-e8032c183178">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">es_bisiesto</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>True</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=90f71bd9-3fbe-48cc-b0c4-3892a8d8daca">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">es_bisiesto</span><span class="p">(</span><span class="mi">2100</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>False</pre>
+<h1 id="Ejercicio-peatones-en-la-pandemia">1 Ejercicio peatones en la pandemia<a class="anchor-link" href="#Ejercicio-peatones-en-la-pandemia">¶</a></h1><p>Para realizar este ejercicio vamos a utilizar el fichero .csv de la página del Portal de Datos Abiertos del Ayuntamiento de Madrid (<a href="https://datos.madrid.es/">https://datos.madrid.es/</a>). Desde dicha página buscamos <code>peatones</code>y nos lleva a <code>Aforos de peatones y bicicletas</code> (<a href="https://datos.madrid.es/dataset/300321-0-aforos-peatones-bicicletas">https://datos.madrid.es/dataset/300321-0-aforos-peatones-bicicletas</a>). Aquí tenemos que descargarnos el fichero csv de peatones correspondiente al año 2020
+<a href="https://datos.madrid.es/dataset/300321-0-aforos-peatones-bicicletas/downloads">https://datos.madrid.es/dataset/300321-0-aforos-peatones-bicicletas/downloads</a>.</p>
+<p>La descripción de cada campo del fichero es:</p>
+<table>
+<thead>
+<tr>
+<th>Número de columna</th>
+<th>Nombre columna</th>
+<th>Descripción</th>
+<th>Valores esperados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>fecha</td>
+<td>Fecha del registro. Formato de fecha: DD-MM-AAAA.</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>hora</td>
+<td>Hora del registro. Formato de hora: HH:MM.</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>identificador</td>
+<td>Identificador único del registro.</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>4</td>
+<td>peatones</td>
+<td>Número de bicicletas registradas.</td>
+<td>Numérico</td>
+</tr>
+<tr>
+<td>5</td>
+<td>device_id</td>
+<td>Identificador único del registro.</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Número_distrito</td>
+<td>Número identificativo del distrito.</td>
+<td>Numérico</td>
+</tr>
+<tr>
+<td>7</td>
+<td>distrito</td>
+<td>Nombre del distrito.</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>8</td>
+<td>direccion</td>
+<td>Dirección exacta del aforo.</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>9</td>
+<td>observaciones_direccion</td>
+<td>Observaciones adicionales sobre la dirección del tráfico.</td>
+<td>Texto</td>
+</tr>
+<tr>
+<td>10</td>
+<td>latitude</td>
+<td>Latitud geográfica del registro.</td>
+<td>Número decimal (40.400000)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>longitude</td>
+<td>Longitud geográfica del registro.</td>
+<td>Número decimal (3.700000)</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f042ed3d-3ece-40b9-b82a-5c450261e77b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">es_bisiesto</span><span class="p">(</span><span class="mi">2020</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>True</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f0339c49-ce1d-4051-9d80-e30b9c93f7dd">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">es_bisiesto</span><span class="p">(</span><span class="mi">2026</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>False</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=abaea051-b4a6-4071-b584-0d834c240b92">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4cbf8fb2-228a-4d40-93a5-aef6a340df3f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Tabla-de-mutiplicar">1.2 2. Tabla de mutiplicar<a class="anchor-link" href="#2.-Tabla-de-mutiplicar">¶</a></h2><blockquote>
-<p>Este ejercicio debes hacerlo con un bucle ¿while o for?</p>
-</blockquote>
-<p>Implementa una función que desarrolle la tabla de multiplicar de un número dado como entrada.</p>
+<h2 id="Carga-de-datos-y-exploraci%C3%B3n-del-dataframe">1.1 Carga de datos y exploración del dataframe<a class="anchor-link" href="#Carga-de-datos-y-exploraci%C3%B3n-del-dataframe">¶</a></h2><p>Después de descargarnos el fichero <code>300321-3-aforos-peatones-bicicletas-csv.csv</code> correspondiente al año 2020  de la web <a href="https://datos.madrid.es/dataset/300321-0-aforos-peatones-bicicletas/downloads">https://datos.madrid.es/dataset/300321-0-aforos-peatones-bicicletas/downloads</a>, lo dejamos en nuestra carpeta llamada Data y lo importamos como un dataframe llamado df.</p>
+<p>Lo primero que tenemos que hacer es ver el contenido del fichero con una aplicación de texto plano y veo que el csv no está separado por <code>comas</code>, sino por <code>punto y coma</code> y además, utiliza la <code>coma</code> como separador decimal en LATITUD y LONGITUD. Así que se debe indicar <code>sep=";"</code> y <code> decimal=","</code> como parámetros de la carga de pandas <code>pd.read_csv</code>.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=60aa15fc-86a8-4d3e-a12d-b16b614b6543">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7be59ca7-bc29-4d22-8d57-ff0d434a638e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tabla_mult_for</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Tabla de multiplicar (for) del número: '</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">' </span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>   <span class="c1"># Secuencia de escape \n es salto de línea </span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">n</span> <span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">' = '</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'---</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="n">tabla_mult_for</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">tabla_mult_for</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">tabla_mult_while</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Tabla de multiplicar (while) del número: '</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">' n</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>   <span class="c1"># Secuencia de escape \n es salto de línea </span>
-    <span class="n">resultado</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">n</span> <span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">' = '</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'---</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-
-<span class="n">tabla_mult_while</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">tabla_mult_while</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">"./Data/300321-3-aforos-peatones-bicicletas-csv.csv"</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s2">";"</span><span class="p">,</span>
+    <span class="n">decimal</span><span class="o">=</span><span class="s2">","</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-Tabla de multiplicar (for) del número:  2  
-
-2 * 1  =  2
-2 * 2  =  4
-2 * 3  =  6
-2 * 4  =  8
-2 * 5  =  10
-2 * 6  =  12
-2 * 7  =  14
-2 * 8  =  16
-2 * 9  =  18
-2 * 10  =  20
----
-
-
-Tabla de multiplicar (for) del número:  5  
-
-5 * 1  =  5
-5 * 2  =  10
-5 * 3  =  15
-5 * 4  =  20
-5 * 5  =  25
-5 * 6  =  30
-5 * 7  =  35
-5 * 8  =  40
-5 * 9  =  45
-5 * 10  =  50
----
-
-
-Tabla de multiplicar (while) del número:  2  n
-
-2 * 1  =  2
-2 * 2  =  4
-2 * 3  =  6
-2 * 4  =  8
-2 * 5  =  10
-2 * 6  =  12
-2 * 7  =  14
-2 * 8  =  16
-2 * 9  =  18
-2 * 10  =  20
----
-
-
-Tabla de multiplicar (while) del número:  5  n
-
-5 * 1  =  5
-5 * 2  =  10
-5 * 3  =  15
-5 * 4  =  20
-5 * 5  =  25
-5 * 6  =  30
-5 * 7  =  35
-5 * 8  =  40
-5 * 9  =  45
-5 * 10  =  50
----
-
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=21bfcc9e-d66e-4507-a8b3-2c619472ebe1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eb93f7bb-9ecf-4c59-8d24-84d08b17be91">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Sumar-los-primeros-n%C3%BAmeros-enteros-hasta-uno-dado">1.3 3. Sumar los primeros números enteros hasta uno dado<a class="anchor-link" href="#3.-Sumar-los-primeros-n%C3%BAmeros-enteros-hasta-uno-dado">¶</a></h2><blockquote>
-<p>Este ejercicio debes hacerlo con un bucle ¿while o for?</p>
-</blockquote>
-<p>Deseamos sumar los primeros números enteros hasta uno dado. Por ejemplo, si el número es 10, la suma sería 1 + 2 + ... + 10. Por lo tanto, el resultado que devuelve la función es 55.</p>
+<p>Muestra el DataFrame para comprobar que la carga se ha realizado correctamente. Puedes escribir simplemente el nombre del objeto.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3d119396-64b0-4e4e-b255-7faa798fc60b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=228cbec8-551f-45b0-9cb7-33850f2fdde7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sumar_hasta_for</span><span class="p">(</span><span class="n">lim_sup</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Esta función calcula la suma de los enteros desde 1 hasta lim_sup,</span>
-<span class="sd">    incluyendo ambos. Si lim_sup &lt; 1, la función devuelve 0</span>
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">        Suma de 1 + 2 + 3 + ... + lim_sup</span>
-
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; suma_hasta(4)</span>
-<span class="sd">    10</span>
-<span class="sd">    """</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Suma de e los enteros desde 1 hasta '</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="s1">' con for'</span><span class="p">)</span>  
-
-    <span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lim_sup</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">suma</span> <span class="o">=</span> <span class="n">suma</span> <span class="o">+</span> <span class="n">i</span>
-
-    <span class="k">return</span> <span class="n">suma</span>
-
-<span class="k">def</span> <span class="nf">sumar_hasta_while</span><span class="p">(</span><span class="n">lim_sup</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span><span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Esta función calcula la suma de los enteros desde 1 hasta lim_sup,</span>
-<span class="sd">    incluyendo ambos. Si lim_sup &lt; 1, la función devuelve 0</span>
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">        Suma de 1 + 2 + 3 + ... lim_sup</span>
-
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; suma_hasta(4)</span>
-<span class="sd">    10</span>
-<span class="sd">    """</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Suma de e los enteros desde 1 hasta '</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="s1">' con while'</span><span class="p">)</span>  
-
-    <span class="n">suma</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">lim_sup</span><span class="p">:</span>
-        <span class="n">suma</span> <span class="o">=</span> <span class="n">suma</span> <span class="o">+</span> <span class="n">i</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-        
-    <span class="k">return</span> <span class="n">suma</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c9e71e91-66c2-4690-b833-5ee4e9badb74">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">sumar_hasta_for</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -7879,228 +7677,431 @@ Tabla de multiplicar (while) del número:  5  n
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-Suma de e los enteros desde 1 hasta  100  con for
-</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>5050</pre>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>FECHA</th>
+<th>HORA</th>
+<th>IDENTIFICADOR</th>
+<th>PEATONES</th>
+<th>NÚMERO_DISTRITO</th>
+<th>DISTRITO</th>
+<th>NOMBRE_VIAL</th>
+<th>NÚMERO</th>
+<th>CÓDIGO_POSTAL</th>
+<th>OBSERVACIONES_DIRECCION</th>
+<th>LATITUD</th>
+<th>LONGITUD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>01/01/2020 0:00</td>
+<td>0:00</td>
+<td>PERM_PEA02_PM01</td>
+<td>1269</td>
+<td>1</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>28004</td>
+<td>Calle peatonal</td>
+<td>40.422009</td>
+<td>-3.700892</td>
+</tr>
+<tr>
+<th>1</th>
+<td>01/01/2020 1:00</td>
+<td>1:00</td>
+<td>PERM_PEA02_PM01</td>
+<td>1137</td>
+<td>1</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>28004</td>
+<td>Calle peatonal</td>
+<td>40.422009</td>
+<td>-3.700892</td>
+</tr>
+<tr>
+<th>2</th>
+<td>01/01/2020 2:00</td>
+<td>2:00</td>
+<td>PERM_PEA02_PM01</td>
+<td>843</td>
+<td>1</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>28004</td>
+<td>Calle peatonal</td>
+<td>40.422009</td>
+<td>-3.700892</td>
+</tr>
+<tr>
+<th>3</th>
+<td>01/01/2020 3:00</td>
+<td>3:00</td>
+<td>PERM_PEA02_PM01</td>
+<td>711</td>
+<td>1</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>28004</td>
+<td>Calle peatonal</td>
+<td>40.422009</td>
+<td>-3.700892</td>
+</tr>
+<tr>
+<th>4</th>
+<td>01/01/2020 4:00</td>
+<td>4:00</td>
+<td>PERM_PEA02_PM01</td>
+<td>476</td>
+<td>1</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>28004</td>
+<td>Calle peatonal</td>
+<td>40.422009</td>
+<td>-3.700892</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>166891</th>
+<td>31/12/2020 23:00</td>
+<td>23:00</td>
+<td>PERM_PEA15_PM01</td>
+<td>173</td>
+<td>1</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>28004</td>
+<td>Calle peatonal</td>
+<td>40.422009</td>
+<td>-3.700892</td>
+</tr>
+<tr>
+<th>166892</th>
+<td>31/12/2020 23:00</td>
+<td>23:00</td>
+<td>PERM_PEA16_PM01</td>
+<td>105</td>
+<td>2</td>
+<td>Arganzuela</td>
+<td>Plaza del Emperador Carlos V</td>
+<td>11</td>
+<td>28012</td>
+<td>Acera Impares</td>
+<td>40.411109</td>
+<td>-3.696471</td>
+</tr>
+<tr>
+<th>166893</th>
+<td>31/12/2020 23:00</td>
+<td>23:00</td>
+<td>PERM_PEA17_PM01</td>
+<td>113</td>
+<td>2</td>
+<td>Arganzuela</td>
+<td>Plaza del Emperador Carlos V</td>
+<td>11</td>
+<td>28012</td>
+<td>Acera Impares</td>
+<td>40.411109</td>
+<td>-3.696471</td>
+</tr>
+<tr>
+<th>166894</th>
+<td>31/12/2020 23:00</td>
+<td>23:00</td>
+<td>PERM_PEA18_PM01</td>
+<td>76</td>
+<td>1</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>28004</td>
+<td>Calle peatonal</td>
+<td>40.422009</td>
+<td>-3.700892</td>
+</tr>
+<tr>
+<th>166895</th>
+<td>31/12/2020 23:00</td>
+<td>23:00</td>
+<td>PERM_PEA19_PM01</td>
+<td>6</td>
+<td>1</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>28004</td>
+<td>Calle peatonal</td>
+<td>40.422009</td>
+<td>-3.700892</td>
+</tr>
+</tbody>
+</table>
+<p>166896 rows × 12 columns</p>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=37477933">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">sumar_hasta_while</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-Suma de e los enteros desde 1 hasta  100  con while
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>5050</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=14501ce2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">sumar_hasta_for</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-Suma de e los enteros desde 1 hasta  -3  con for
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>0</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c6e809c2-3cc2-47e4-b94e-815e949a956c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">sumar_hasta_while</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-Suma de e los enteros desde 1 hasta  -3  con while
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>0</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a7009e21-3a46-47e2-bf18-fb64af20ac0e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8d097364-5bb0-439e-86f3-fd91c9aa047f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Lista-de-los-primeros-n-a%C3%B1os-bisiestos.">1.4 Lista de los primeros n años bisiestos.<a class="anchor-link" href="#Lista-de-los-primeros-n-a%C3%B1os-bisiestos.">¶</a></h2><p>Escribe una función que devuelva en una lista los primeros <code>n</code> años bisiestos desde <code>1900</code>.</p>
+<h2 id="Analizar-y-transformar-los-tipos-de-datos">1.2 Analizar y transformar los tipos de datos<a class="anchor-link" href="#Analizar-y-transformar-los-tipos-de-datos">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d49e1e04-6fc0-41bb-befc-4f62e778359e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Lo primero es conocer qué tipo de datos tiene cada columna. Lo puedes hacer con <code>info()</code> que es especialmente útil porque nos muestra el número de valores <em>no nulos</em>.</p>
+<p>Observa que <code>LATITUD</code> y <code>LONGITUD</code> quedan como <code>float64</code>.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=170dc003-3ba2-4ac6-bb6f-0fe1e1dbb9cc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 166896 entries, 0 to 166895
+Data columns (total 12 columns):
+ #   Column                   Non-Null Count   Dtype  
+---  ------                   --------------   -----  
+ 0   FECHA                    166896 non-null  object 
+ 1   HORA                     166896 non-null  object 
+ 2   IDENTIFICADOR            166896 non-null  object 
+ 3   PEATONES                 166896 non-null  int64  
+ 4   NÚMERO_DISTRITO          166896 non-null  int64  
+ 5   DISTRITO                 166896 non-null  object 
+ 6   NOMBRE_VIAL              166896 non-null  object 
+ 7   NÚMERO                   166896 non-null  int64  
+ 8   CÓDIGO_POSTAL            166896 non-null  int64  
+ 9   OBSERVACIONES_DIRECCION  166896 non-null  object 
+ 10  LATITUD                  166896 non-null  float64
+ 11  LONGITUD                 166896 non-null  float64
+dtypes: float64(2), int64(4), object(6)
+memory usage: 15.3+ MB
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=718e0b20-00ac-485f-9668-b93449362a97">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><code>object</code> no dice exactamente qué clase de objeto hay dentro de la columna. En pandas, significa que la columna contiene valores almacenados como objetos de Python, muy frecuentemente cadenas de texto (str).
+Puedes comprobar el tipo de los elementos accediendo, por ejemplo, al primer elemento de FECHA con <code>iloc[0]</code> y sobre esta celda utilizar <code>type()</code>.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d4fa96dd-4406-40d6-aedc-eb34dc1d00c5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>str</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9c6464a4-694b-4310-955f-49ed6085ee50">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Pero en python tenemos un tipo de datos específico para la fecha y la hora</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c4149316-ccd6-47fc-a26a-3110c66266a3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Fechas">1.2.1 Fechas<a class="anchor-link" href="#Fechas">¶</a></h3><p>En Python podemos trabajar con distintos tipos de datos temporales:</p>
+<ul>
+<li><code>date</code>: representa una fecha: año, mes y día.</li>
+<li><code>time</code>: representa una hora: hora, minutos, segundos.</li>
+<li><code>datetime</code>: representa fecha y hora conjuntamente</li>
+</ul>
+<p>Como hemos visto, pandas todavía no reconoce <code>FECHA</code> como una fecha, sino que la ha leído como texto. Por lo tanto usamos <code>pd.to_datetime()</code> para convertir los tipos de los valores. Además, necesitamos el parámetro <code>dayfirst = True</code> para indicar a pandas que, al interpretar una fecha, el primer número corresponde al día pues la fecha está escrita con el día antes del mes.</p>
+<p>Ejecuto <code>df["FECHA"] = pd.to_datetime(df["FECHA"], dayfirst=True)</code> pero me da error.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a949a476-ac11-4018-86a2-b121eba35a29">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># df["FECHA"] = pd.to_datetime(df["FECHA"], dayfirst=True)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4853c951-31ec-4795-85c7-ef3ef7a3dc46">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Y me da error, pero... ¿qué ha pasado?</p>
+<p>Pues que en el fichero hay dos formatos diferentes en las fechas, unos es con la hora <code>01/01/2020 00:00</code> y el otro es sin hora <code>02/09/2020</code>.
+Pandas ha inferido inicialmente el formato %d/%m/%Y %H:%M pero ha detectado un valor que no seguía este formato.
+Si miramos al final del error,</p>
 <blockquote>
-<p>En este ejercicio debes llamar a la función 'es_bisiesto' que has definido antes</p>
+<p>ValueError: time data "02/09/2020" doesn't match format "%d/%m/%Y %H:%M", at position 5880)</p>
+</blockquote>
+<p>nos dice que en la posición 5880 se ha encontrado 02/09/2020 sin hora
+y nos aconseja hacer varias cosas, la más interesante es la que dice:</p>
+<blockquote>
+<p><code>format='mixed'</code>, and the format will be inferred for each element individually. You might want to use <code>dayfirst</code> alongside this.</p>
 </blockquote>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d2fa8021-803a-4798-89dc-b49d48c81af6">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e9ccc806-956c-4c91-87d7-e87b413bb839">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Vuelve a realizar la conversión de FECHA, pero esta vez teniendo en cuenta el mensaje de error.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e706b85e-5a27-4aea-b5ab-345d093a0883">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">primeros_bisiestos</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Devuelve los n primeros años bisiestos desde 1900."""</span>
-    <span class="n">resultado</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">1900</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Lista de los '</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">'primeros años bisiestos desde 1900'</span><span class="p">)</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">es_bisiesto</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-            <span class="n">resultado</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-        <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
-
-    <span class="k">return</span> <span class="n">resultado</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">],</span>
+    <span class="n">dayfirst</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="nb">format</span> <span class="o">=</span> <span class="s2">"mixed"</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e9e5cd0c-b8f0-48e6-a89c-00b74166c598">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9e11a2c7-5e6c-4cb6-80e9-3bfb32577490">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Volvemos a comprobar el tipo del primer valor de la columna <code>FECHA</code>.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=239423a9-5aca-4e3b-a247-4de9fa6d49a2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">primeros_bisiestos</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Lista de los  15 primeros años bisiestos desde 1900
-[1904, 1908, 1912, 1916, 1920, 1924, 1928, 1932, 1936, 1940, 1944, 1948, 1952, 1956, 1960]
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=af7438df-9c2d-447d-a8da-f8fc4d3f0934">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%C2%BFSe-puede-hacer-este-ejercicio-con-un-for?">1.4.1 ¿Se puede hacer este ejercicio con un for ?<a class="anchor-link" href="#%C2%BFSe-puede-hacer-este-ejercicio-con-un-for?">¶</a></h3><p>Sí, este ejercicio se puede hacer con <code>for</code>, pero hay una cuestión importante:</p>
-<div style="
-    border: 1px solid black;
-    padding: 15px;
-    margin: 20px;
-">
-<p><em><strong>En este problema el número de años que hay que recorrer no se conoce de antemano, porque queremos encontrar los <code>n</code> primeros bisiestos.</strong></em></p>
-</div>
-<p><em><strong>Esto implicaría hacer un recorrido (<code>for</code>) hasta un número estimado y cortar el bucle cuando llegamos a <code>n</code> y esto es desaconsejable (y feo).</strong></em></p>
-<p><em><strong>Por eso, hacerlo con un bucle <code>while</code> es lo correcto.</strong></em></p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e4ee6485-9883-4d0b-932c-07363b5ee848">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Buscar-el-siguiente-a%C3%B1o-bisiesto">1.5 Buscar el siguiente año bisiesto<a class="anchor-link" href="#Buscar-el-siguiente-a%C3%B1o-bisiesto">¶</a></h2><p>Un ejemplo de uso del while de forma natural es buscar el siguiente año bisiesto a un año dado. No sabemos cuántos años habrá que avanzar, puede ser un año, o dos, o lo que sea. Así que la estructura más adecuada es un <code>while</code>.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ff74e431-80ba-413c-b6f2-cb2c6c20f426">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">siguiente_bisiesto</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Devuelve el siguiente año bisiesto a partir del año indicado.</span>
-<span class="sd">    """</span>
-    <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>    
+<span class="c1"># Sin print sale &lt;M8[ns] que es una representación interna de NumPy y significa:</span>
+<span class="c1"># - M → datetime</span>
+<span class="c1"># - 8 → ocupa 8 bytes</span>
+<span class="c1"># - ns → nanosegundos como unidad de precisión</span>
 
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">es_bisiesto</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-        <span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>    <span class="c1"># Timestamp es el tipo que utiliza pandas para representar una fecha y hora.</span>
 
-    <span class="k">return</span> <span class="n">a</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">siguiente_bisiesto</span><span class="p">(</span><span class="mi">1999</span><span class="p">))</span>     <span class="c1"># 2000</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">siguiente_bisiesto</span><span class="p">(</span><span class="mi">2000</span><span class="p">))</span>     <span class="c1"># 2004</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">siguiente_bisiesto</span><span class="p">(</span><span class="mi">2003</span><span class="p">))</span>     <span class="c1"># 2004</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">siguiente_bisiesto</span><span class="p">(</span><span class="mi">2096</span><span class="p">))</span>     <span class="c1"># 2104</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">siguiente_bisiesto</span><span class="p">(</span><span class="mi">2398</span><span class="p">))</span>     <span class="c1"># 2400</span>
+<span class="c1"># FECHA</span>
+<span class="c1">#   │</span>
+<span class="c1">#   ├── dtype de la columna → datetime64[ns]</span>
+<span class="c1">#   │</span>
+<span class="c1">#   └── cada elemento → pandas.Timestamp</span>
 </pre></div>
 </div>
 </div>
@@ -8112,24 +8113,1379 @@ Suma de e los enteros desde 1 hasta  -3  con while
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>2000
-2004
-2004
-2104
-2400
+<pre>datetime64[ns]
+&lt;class 'pandas._libs.tslibs.timestamps.Timestamp'&gt;
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d4083ec9-73b1-444f-9a4e-f13fbe885ce2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=96387b3e-a97b-4e3f-8da6-aa3fa346607d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="%C2%BFEste-ejercicio-se-puede-hacer-con-un-for?.">1.5.1 ¿Este ejercicio se puede hacer con un for ?.<a class="anchor-link" href="#%C2%BFEste-ejercicio-se-puede-hacer-con-un-for?.">¶</a></h3><p><em><strong>Sí, se puede hacer con for, aunque, igual que en el ejercicio anterior, el while es más natural porque no sabemos cuántos años tendremos que comprobar hasta encontrar el siguiente bisiesto.</strong></em></p>
-<p><em><strong>Es decir, conceptualmente no es una solución tan limpia.</strong></em></p>
+<p>Ahora sí que estamos trabajando con fechas reales y podemos, por ejemplo,
+extrae de FECHA una parte concreta utilizando el accesor <code>.dt</code>. Prueba primero con el año (<code>df["FECHA"].dt.year</code>), después con el mes y finalmente con el nombre del día de la semana.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=748e23e2-af6c-435f-8bfd-dec1282f30c7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'La parte año de la fecha es:'</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>La parte año de la fecha es:
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>0         2020
+1         2020
+2         2020
+3         2020
+4         2020
+          ... 
+166891    2020
+166892    2020
+166893    2020
+166894    2020
+166895    2020
+Name: FECHA, Length: 166896, dtype: int32</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9c8b5f4f-6e72-4eb0-a062-f6d9b1ea2d39">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'La parte mes de la fecha es:'</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>La parte mes de la fecha es:
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>0          1
+1          1
+2          1
+3          1
+4          1
+          ..
+166891    12
+166892    12
+166893    12
+166894    12
+166895    12
+Name: FECHA, Length: 166896, dtype: int32</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2e4a5b87-c5c9-4e89-8867-6f0dc07a98ab">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'La parte día de la fecha es:'</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>La parte día de la fecha es:
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>0         Wednesday
+1         Wednesday
+2         Wednesday
+3         Wednesday
+4         Wednesday
+            ...    
+166891     Thursday
+166892     Thursday
+166893     Thursday
+166894     Thursday
+166895     Thursday
+Name: FECHA, Length: 166896, dtype: object</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eb910a84-6c22-4638-959d-17862f99dd8b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>También podemos comparar dos fechas, para ello vamos a obtener una fecha de la primera fila y otra de la última. Acuérdate que <code>iloc[0]</code> devuelve una fila completa, así que tendrás que seleccionar además la columna <code>FECHA</code>. Imprime las dos fechas y después puedes restalas.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=67005a6b-486b-4ec9-997e-f9649af845a7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fecha1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"FECHA"</span><span class="p">]</span>
+<span class="n">fecha2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="s2">"FECHA"</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fecha1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fecha2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fecha2</span> <span class="o">-</span> <span class="n">fecha1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>2020-01-01 00:00:00
+2020-12-31 23:00:00
+365 days 23:00:00
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=32941cda-2cb0-4c57-9dc0-1dd8fbbae428">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Horas">1.2.2 Horas<a class="anchor-link" href="#Horas">¶</a></h3><p>Ahora vamos con la columna <code>HORA</code> que aparece como textode la forma <code>00:00</code>y <code>01:00</code>. Estos valores
+podemos convertirlos a un tipo de hora de pandas pero, pandas no tiene una función <code>pd.to_time()</code>. Necesitamos hacer un <code>pd.to_datetime()</code> con formato de fecha <code>%H:%M</code>como parámetro. Finalmente, aplicamos <code>pd.to_datetime().dt.time</code> para quedarnos únicamente con la parte de la hora.</p>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">],</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"%H:%M"</span>
+<span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">time</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2913a4a0-050d-4fa4-88ed-fd771bc045ce">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">],</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">"%H:%M"</span>
+<span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">time</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9b1794d5-be27-4f00-a8c6-8e0896691d63">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Ojo que el print(df["HORA"].dtype)  dice que es un object</span>
+
+<span class="c1"># ¿Por qué ocurre?</span>
+<span class="c1"># Porque datetime.time es un objeto de Python, no un tipo de datos nativo de NumPy que pandas pueda almacenar como un dtype temporal especializado.</span>
+
+<span class="c1"># pandas no tiene un dtype específico para una columna de objetos datetime.time, por lo que la columna aparece como object. </span>
+
+<span class="c1"># Una columna de pandas puede tener dtype="object" aunque sus elementos sean objetos de Python de un tipo concreto. Por ejemplo, una columna cuyos elementos son datetime.time tendrá normalmente dtype=object</span>
+<span class="c1"># Y no hay ningún error</span>
+
+<span class="c1"># Columna HORA</span>
+<span class="c1">#      │</span>
+<span class="c1">#      ├── dtype de pandas → object</span>
+<span class="c1">#      │</span>
+<span class="c1">#      └── cada elemento → datetime.time</span>
+<span class="c1"># </span>
+<span class="c1"># Esto es diferente de FECHA. Podemos verlo claramente.</span>
+<span class="c1"># </span>
+<span class="c1"># print("FECHA:")</span>
+<span class="c1"># print(df["FECHA"].dtype)</span>
+<span class="c1"># print(type(df["FECHA"].iloc[0]))</span>
+
+<span class="c1"># print("HORA:")</span>
+<span class="c1"># print(df["HORA"].dtype)</span>
+<span class="c1"># print(type(df["HORA"].iloc[0]))</span>
+<span class="c1"># </span>
+<span class="c1"># FECHA:</span>
+<span class="c1"># datetime64[ns]</span>
+<span class="c1"># &lt;class 'pandas._libs.tslibs.timestamps.Timestamp'&gt;</span>
+
+<span class="c1"># HORA:</span>
+<span class="c1"># object</span>
+<span class="c1"># &lt;class 'datetime.time'&gt;</span>
+<span class="c1"># </span>
+<span class="c1"># Entonces, ¿está bien convertir HORA a datetime.time? </span>
+<span class="c1"># </span>
+<span class="c1"># </span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>object
+&lt;class 'datetime.time'&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f1b8954-4b94-4781-a369-bd0901f5e371">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Seleccionar-ciertas-columnas-de-la-tabla,-las-que-me-interesan">1.3 Seleccionar ciertas columnas de la tabla, las que me interesan<a class="anchor-link" href="#Seleccionar-ciertas-columnas-de-la-tabla,-las-que-me-interesan">¶</a></h2><p>Crea un nuevo DataFrame <code>df_1</code> seleccionando únicamente las columnas:
+<code>FECHA</code>, <code>HORA</code>, <code>PEATONES</code>, <code>DISTRITO</code>, <code>NOMBRE_VIAL</code> y <code>NÚMERO</code>.
+Para seleccionar varias columnas necesitas una lista de nombres dentro de los corchetes.
+Usa <code>.copy()</code> para crear un nuevo DataFrame independiente.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c5c1b0e9-fbfc-4248-94e6-c16acf0d24a2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">"FECHA"</span><span class="p">,</span> <span class="s2">"HORA"</span><span class="p">,</span> <span class="s2">"PEATONES"</span><span class="p">,</span> <span class="s2">"DISTRITO"</span><span class="p">,</span> <span class="s2">"NOMBRE_VIAL"</span><span class="p">,</span> <span class="s2">"NÚMERO"</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3d33f3a0-df95-47af-837e-368d050e44c8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Cambiar-el-nombre-de-la-columna-NOMBRE_VIALpor-DIRECCION.">1.4 Cambiar el nombre de la columna NOMBRE_VIAL por DIRECCION .<a class="anchor-link" href="#Cambiar-el-nombre-de-la-columna-NOMBRE_VIALpor-DIRECCION.">¶</a></h2><p>Utiliza <code>rename()</code> para cambiar el nombre de <code>NOMBRE_VIAL</code> por <code>DIRECCION</code>.
+Después puedes consultar <code>df_1.columns</code> para comprobar el cambio.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8ccf5e11-805f-4ceb-a57a-29cec310610e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_1</span> <span class="o">=</span> <span class="n">df_1</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"NOMBRE_VIAL"</span><span class="p">:</span> <span class="s2">"DIRECCION"</span><span class="p">})</span>
+<span class="n">df_1</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Index(['FECHA', 'HORA', 'PEATONES', 'DISTRITO', 'DIRECCION', 'NÚMERO'], dtype='object')</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c29162a1-7621-4ed5-b560-087a30e7ea17">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Calcular-el-total-de-peatones-por-d%C3%ADa-de-la-semana">1.5 Calcular el total de peatones por día de la semana<a class="anchor-link" href="#Calcular-el-total-de-peatones-por-d%C3%ADa-de-la-semana">¶</a></h2><p>Para analizar los peatones por día de la semana, necesitamos añadir una columna una nueva columna con dicho dato.
+Es decir, a partir de <code>FECHA</code>, crea una nueva columna llamada <code>DIA_SEMANA</code>.
+El accesor <code>.dt</code> tiene un método <code>day_name()</code> que devuelve el nombre del día de la semana.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4e66c246-3f92-4799-9da4-2bce8510ecce">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_1</span><span class="p">[</span><span class="s2">"DIA_SEMANA"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_1</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+<span class="n">df_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>FECHA</th>
+<th>HORA</th>
+<th>PEATONES</th>
+<th>DISTRITO</th>
+<th>DIRECCION</th>
+<th>NÚMERO</th>
+<th>DIA_SEMANA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2020-01-01 00:00:00</td>
+<td>00:00:00</td>
+<td>1269</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Wednesday</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2020-01-01 01:00:00</td>
+<td>01:00:00</td>
+<td>1137</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Wednesday</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2020-01-01 02:00:00</td>
+<td>02:00:00</td>
+<td>843</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Wednesday</td>
+</tr>
+<tr>
+<th>3</th>
+<td>2020-01-01 03:00:00</td>
+<td>03:00:00</td>
+<td>711</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Wednesday</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2020-01-01 04:00:00</td>
+<td>04:00:00</td>
+<td>476</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Wednesday</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>166891</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>173</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Thursday</td>
+</tr>
+<tr>
+<th>166892</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>105</td>
+<td>Arganzuela</td>
+<td>Plaza del Emperador Carlos V</td>
+<td>11</td>
+<td>Thursday</td>
+</tr>
+<tr>
+<th>166893</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>113</td>
+<td>Arganzuela</td>
+<td>Plaza del Emperador Carlos V</td>
+<td>11</td>
+<td>Thursday</td>
+</tr>
+<tr>
+<th>166894</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>76</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Thursday</td>
+</tr>
+<tr>
+<th>166895</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>6</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Thursday</td>
+</tr>
+</tbody>
+</table>
+<p>166896 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8d1e3e3b-e6b8-4374-92c4-574636acb0c0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Si queremos los nombres en español debemos usar <code>day_name()</code> devuelve los nombres de los días en inglés. A parte, crea un diccionario que relacione cada nombre en inglés con su equivalente en español y utiliza un bucle para realizar la sustitución.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=08070660-98a8-408c-b339-a55faf84a5c3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">dias</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Monday"</span><span class="p">:</span> <span class="s2">"Lunes"</span><span class="p">,</span>
+    <span class="s2">"Tuesday"</span><span class="p">:</span> <span class="s2">"Martes"</span><span class="p">,</span>
+    <span class="s2">"Wednesday"</span><span class="p">:</span> <span class="s2">"Miércoles"</span><span class="p">,</span>
+    <span class="s2">"Thursday"</span><span class="p">:</span> <span class="s2">"Jueves"</span><span class="p">,</span>
+    <span class="s2">"Friday"</span><span class="p">:</span> <span class="s2">"Viernes"</span><span class="p">,</span>
+    <span class="s2">"Saturday"</span><span class="p">:</span> <span class="s2">"Sábado"</span><span class="p">,</span>
+    <span class="s2">"Sunday"</span><span class="p">:</span> <span class="s2">"Domingo"</span>
+<span class="p">}</span>
+
+<span class="n">df_1</span><span class="p">[</span><span class="s2">"DIA_SEMANA"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_1</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_1</span><span class="p">)):</span>
+    <span class="n">df_1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">"DIA_SEMANA"</span><span class="p">]</span> <span class="o">=</span> <span class="n">dias</span><span class="p">[</span><span class="n">df_1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">"DIA_SEMANA"</span><span class="p">]]</span>
+
+<span class="c1"># Esto tarda</span>
+
+<span class="n">df_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>FECHA</th>
+<th>HORA</th>
+<th>PEATONES</th>
+<th>DISTRITO</th>
+<th>DIRECCION</th>
+<th>NÚMERO</th>
+<th>DIA_SEMANA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2020-01-01 00:00:00</td>
+<td>00:00:00</td>
+<td>1269</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Miércoles</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2020-01-01 01:00:00</td>
+<td>01:00:00</td>
+<td>1137</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Miércoles</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2020-01-01 02:00:00</td>
+<td>02:00:00</td>
+<td>843</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Miércoles</td>
+</tr>
+<tr>
+<th>3</th>
+<td>2020-01-01 03:00:00</td>
+<td>03:00:00</td>
+<td>711</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Miércoles</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2020-01-01 04:00:00</td>
+<td>04:00:00</td>
+<td>476</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Miércoles</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>166891</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>173</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Jueves</td>
+</tr>
+<tr>
+<th>166892</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>105</td>
+<td>Arganzuela</td>
+<td>Plaza del Emperador Carlos V</td>
+<td>11</td>
+<td>Jueves</td>
+</tr>
+<tr>
+<th>166893</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>113</td>
+<td>Arganzuela</td>
+<td>Plaza del Emperador Carlos V</td>
+<td>11</td>
+<td>Jueves</td>
+</tr>
+<tr>
+<th>166894</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>76</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Jueves</td>
+</tr>
+<tr>
+<th>166895</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>6</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Jueves</td>
+</tr>
+</tbody>
+</table>
+<p>166896 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8a289535-ea05-471c-9f94-05d65b766a7e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">peatones_dia</span> <span class="o">=</span> <span class="n">df_1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"DIA_SEMANA"</span><span class="p">)[</span><span class="s2">"PEATONES"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">peatones_dia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>DIA_SEMANA
+Domingo      6882035
+Jueves       6112174
+Lunes        5944647
+Martes       5914144
+Miércoles    6121263
+Sábado       8363292
+Viernes      6806128
+Name: PEATONES, dtype: int64
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=292f9ab0-932a-473d-a3e6-76c54b3553ed">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Crear-un-DataFrame-con-el-distrito-Centro">1.6 Crear un DataFrame con el distrito Centro<a class="anchor-link" href="#Crear-un-DataFrame-con-el-distrito-Centro">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=02032dc1-e926-46a0-94ef-763f498a2794">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Antes de filtrar por el distrito <code>Centro</code>, conviene conocer qué valores aparecen en la columna <code>DISTRITO</code>. Utiliza el método <code>unique()</code> que devuelve los distintos valores de una columna.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c8aec452-a423-4096-ba81-952375fbec7b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_1</span><span class="p">[</span><span class="s2">"DISTRITO"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>['Centro' 'Chamberí' 'Latina' 'Moncloa-Aravaca' 'Arganzuela']
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=95fe95bb-65e5-41bd-8057-bc00a5e736c3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Ahora, crea el dataFrame <code>df_Centro</code> con todas las observaciones que contienen el distrito Centro.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5083ce04-40a4-4bf4-b78e-71746f4ddc0e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_Centro</span> <span class="o">=</span> <span class="n">df_1</span><span class="p">[</span><span class="n">df_1</span><span class="p">[</span><span class="s2">"DISTRITO"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Centro"</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=eac73112-757e-417d-967a-d7460163084f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Peatones-de-Madrid-a-las-23:00">1.7 Peatones de Madrid a las 23:00<a class="anchor-link" href="#Peatones-de-Madrid-a-las-23:00">¶</a></h2><p>Seleccionar las observaciones de <code>df_1</code> de las 23:00.
+Para ello filtra <code>df_1</code> utilizando la columna <code>HORA</code>.
+Como <code>HORA</code> contiene objetos <code>datetime.time</code>, puedes comparar con una hora creada a partir de <code>"23:00"</code> o con <code>datetime.time(23, 0)</code>, es lo mismo.
+Hago las dos versiones creando dos nuevos dataframes: <code>df_Madrid_23h_v1</code> y <code>df_Madrid_23h_v2</code>. El primero usa <code>"23:00"</code> y el segundo <code>datetime.time(23, 0)</code>. Después compruebo sus dimensiones y pregunto si son iguales con <code>df1.equals(df2)</code>.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fc0793f3-2490-4633-aa81-981e4a1bd82b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_Madrid_23h_v1</span> <span class="o">=</span> <span class="n">df_1</span><span class="p">[</span><span class="n">df_1</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">"23:00"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"%H:%M"</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">()]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">df_Madrid_23h_v2</span> <span class="o">=</span> <span class="n">df_1</span><span class="p">[</span><span class="n">df_1</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span> <span class="o">==</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_Madrid_23h_v1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_Madrid_23h_v2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_Madrid_23h_v1</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">df_Madrid_23h_v2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>(6954, 7)
+(6954, 7)
+True
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8c26f05a-255f-4707-8082-dd6aa47407d0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Peatones-de-Centro-a-las-23:00">1.8 Peatones de Centro a las 23:00<a class="anchor-link" href="#Peatones-de-Centro-a-las-23:00">¶</a></h2><p>Seleccionar las observaciones de <code>df_Centro</code> de las 23:00.</p>
+<p>Observación: Necesitarás combinar las condiciones de distrito y hora si partes de <code>df_1</code>, pero aquí ya tenemos filtrado el distrito. Por esto, es importante partir de <code>df_Centro</code> y añadir la condición de que la hora sea <code>23:00</code>.</p>
+<p>Después, observamos las filas y columnas de la tabla.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8cd884d5-4321-4858-882f-2a3a6af33a84">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_Centro_23</span> <span class="o">=</span> <span class="n">df_Centro</span><span class="p">[</span><span class="n">df_Centro</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">"23:00"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"%H:%M"</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">()]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_Centro_23</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(4758, 7)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a24b821b-b90e-49e9-9571-e0ec178391b8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Total-de-peatones-de-Madrid-por-mes">1.9 Total de peatones de Madrid por mes<a class="anchor-link" href="#Total-de-peatones-de-Madrid-por-mes">¶</a></h2><p>Para estudiar los totales por mes, primero creamos una nueva columna <code>MES</code> extrayendo el número de mes de <code>FECHA</code> mediante <code>.dt</code> porque fechas lleva mes y hora.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5daba775-e2a9-4566-8cce-f743cc22f7ce">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_1</span><span class="p">[</span><span class="s2">"MES"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_1</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+<span class="n">df_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>FECHA</th>
+<th>HORA</th>
+<th>PEATONES</th>
+<th>DISTRITO</th>
+<th>DIRECCION</th>
+<th>NÚMERO</th>
+<th>DIA_SEMANA</th>
+<th>MES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2020-01-01 00:00:00</td>
+<td>00:00:00</td>
+<td>1269</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Miércoles</td>
+<td>1</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2020-01-01 01:00:00</td>
+<td>01:00:00</td>
+<td>1137</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Miércoles</td>
+<td>1</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2020-01-01 02:00:00</td>
+<td>02:00:00</td>
+<td>843</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Miércoles</td>
+<td>1</td>
+</tr>
+<tr>
+<th>3</th>
+<td>2020-01-01 03:00:00</td>
+<td>03:00:00</td>
+<td>711</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Miércoles</td>
+<td>1</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2020-01-01 04:00:00</td>
+<td>04:00:00</td>
+<td>476</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Miércoles</td>
+<td>1</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>166891</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>173</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Jueves</td>
+<td>12</td>
+</tr>
+<tr>
+<th>166892</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>105</td>
+<td>Arganzuela</td>
+<td>Plaza del Emperador Carlos V</td>
+<td>11</td>
+<td>Jueves</td>
+<td>12</td>
+</tr>
+<tr>
+<th>166893</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>113</td>
+<td>Arganzuela</td>
+<td>Plaza del Emperador Carlos V</td>
+<td>11</td>
+<td>Jueves</td>
+<td>12</td>
+</tr>
+<tr>
+<th>166894</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>76</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Jueves</td>
+<td>12</td>
+</tr>
+<tr>
+<th>166895</th>
+<td>2020-12-31 23:00:00</td>
+<td>23:00:00</td>
+<td>6</td>
+<td>Centro</td>
+<td>Calle Fuencarral</td>
+<td>22</td>
+<td>Jueves</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>166896 rows × 8 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4212808f-59a5-4c55-94fa-ac873bb62af0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Ahora agrupamos y sumamos los peatones, es decir,  agrupamos por <code>MES</code> y seleccionamos la columna <code>PEATONES</code>.</p>
+<p>¿Qué función de agregación necesitamos para obtener el total de peatones de cada mes?</p>
+<p>Comprueba el resultado de la agrupación.
+Deberías obtener un valor para cada uno de los meses disponibles.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ad9bc29f-eb48-458d-8c9f-a1ceac9debe9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">peatones_mes</span> <span class="o">=</span> <span class="n">df_1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"MES"</span><span class="p">)[</span><span class="s2">"PEATONES"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">peatones_mes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>MES
+1     8006983
+2     7361212
+3     3241413
+4      490313
+5     1968095
+6     3503517
+7     3380743
+8     3179427
+9     3587082
+10    3646475
+11    3461438
+12    4316985
+Name: PEATONES, dtype: int64
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8c2e57a0-f15f-452f-8f85-6eba5943830b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Calcular-el-total-de-peatones-en-una-fecha-concreta-y-por-distrito">1.10 Calcular el total de peatones en una fecha concreta y por distrito<a class="anchor-link" href="#Calcular-el-total-de-peatones-en-una-fecha-concreta-y-por-distrito">¶</a></h2><p>Queremos saber cuántos peatones había en la calle, por ejemplo, el 15 de marzo del 2020. Para esto hay que seguir los siguientes pasos:</p>
+<ol>
+<li><p>A partir del DataFrame df_1, seleccionar los registros del 15 de marzo de 2020 y dejarlos en un nuevo 'df_fecha`.</p>
+</li>
+<li><p>Calcular el total de peatones aplicando el método <code>sum()</code> a la variable <code>PEATONES</code>.</p>
+</li>
+<li><p>Calcular el total por distrito</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d05eda9b-d638-4ee3-8a6c-9788c86bc430">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 1. Seleccionar los registros del 15 de marzo de 2020</span>
+
+<span class="n">fecha</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">"15/03/2020"</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df_fecha</span> <span class="o">=</span> <span class="n">df_1</span><span class="p">[</span><span class="n">df_1</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span> <span class="o">==</span> <span class="n">fecha</span><span class="o">.</span><span class="n">date</span><span class="p">()]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># 2. Calcular el total de peatones</span>
+
+<span class="n">total_peatones</span> <span class="o">=</span> <span class="n">df_fecha</span><span class="p">[</span><span class="s2">"PEATONES"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Total de peatones:"</span><span class="p">,</span> <span class="n">total_peatones</span><span class="p">)</span>
+
+<span class="c1"># 3. Calcular el total por distrito</span>
+
+<span class="n">peatones_distrito</span> <span class="o">=</span> <span class="n">df_fecha</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"DISTRITO"</span><span class="p">)[</span><span class="s2">"PEATONES"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">peatones_distrito</span> <span class="o">=</span> <span class="n">peatones_distrito</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">peatones_distrito</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Total de peatones: 76945
+DISTRITO
+Centro             56432
+Chamberí            7329
+Arganzuela          6234
+Moncloa-Aravaca     3555
+Latina              3395
+Name: PEATONES, dtype: int64
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b5420670-7d61-4f23-8598-68578c45145e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Las-10-calles-con-m%C3%A1s-peatones">1.11 Las 10 calles con más peatones<a class="anchor-link" href="#Las-10-calles-con-m%C3%A1s-peatones">¶</a></h2><p>Pasos:</p>
+<ol>
+<li><p>A partir del DataFrame df_1, agrupa los registros por calle, utilizando la columna DIRECCION.</p>
+</li>
+<li><p>Calcula el total de peatones registrados en cada calle.</p>
+</li>
+<li><p>Ordena las calles de mayor a menor número de peatones.</p>
+</li>
+<li><p>Muestra las 10 calles con mayor número total de peatones.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=716a66b4-5740-4787-b868-a88526ac4e0b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 1. Calcular el total de peatones por calle</span>
+
+<span class="n">peatones_calle</span> <span class="o">=</span> <span class="n">df_1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"DIRECCION"</span><span class="p">)[</span><span class="s2">"PEATONES"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># 2. Ordenar de mayor a menor</span>
+
+<span class="n">peatones_calle</span> <span class="o">=</span> <span class="n">peatones_calle</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># 3. Seleccionar las 10 calles con más peatones</span>
+
+<span class="n">top_10</span> <span class="o">=</span> <span class="n">peatones_calle</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">top_10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>DIRECCION
+Calle Fuencarral                20192010
+Gran Vía                         5617293
+Calle Princesa                   3283849
+Calle Toledo                     2821574
+Plaza del Emperador Carlos V     2185960
+Calle Génova                     1759394
+Carrera de San Jerónimo          1215547
+Ronda de Valencia                1160608
+Alberto Aguilera                 1149314
+Calle Atocha                     1046587
+Name: PEATONES, dtype: int64
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2dd82b7a-2319-4a2b-9fe4-a32eee9c2ace">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%C2%BFA-qu%C3%A9-hora-hay-m%C3%A1s-peatones?">1.12 ¿A qué hora hay más peatones?<a class="anchor-link" href="#%C2%BFA-qu%C3%A9-hora-hay-m%C3%A1s-peatones?">¶</a></h2><p>Pasos:</p>
+<ol>
+<li><p>Agrupa los registros por hora.</p>
+</li>
+<li><p>Calcula el total de peatones registrados en cada hora.</p>
+</li>
+<li><p>Ordena los resultados de mayor a menor.</p>
+</li>
+<li><p>Identifica la hora con mayor y menor número total de peatones.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=edc625e9-000f-4653-bbbe-fd9a344d1a1d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 1. Crear una columna con la hora</span>
+<span class="c1"># Como FECHA contiene la fecha y la hora, podemos extraer la hora con .dt.hour</span>
+<span class="n">df_1</span><span class="p">[</span><span class="s2">"HORA_DIA"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_1</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
+
+<span class="c1"># 2. Calcular el total de peatones por hora</span>
+<span class="n">peatones_hora</span> <span class="o">=</span> <span class="n">df_1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"HORA_DIA"</span><span class="p">)[</span><span class="s2">"PEATONES"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># 3. Ordenar de mayor a menor</span>
+<span class="n">peatones_hora_ordenado</span> <span class="o">=</span> <span class="n">peatones_hora</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">peatones_hora_ordenado</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>HORA_DIA
+20    4469552
+21    4169983
+19    4013067
+18    3304044
+14    3059466
+22    2906280
+13    2815571
+15    2751493
+17    2732509
+16    2488252
+12    2398073
+23    1911736
+11    1650985
+0     1253469
+10    1217730
+9      931989
+1      846635
+8      678473
+2      592709
+7      475331
+3      426225
+4      384638
+5      335120
+6      330353
+Name: PEATONES, dtype: int64
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=36f8e302-3326-487c-9183-a4489a8bba68">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
 </div>
 </div>
 </div>

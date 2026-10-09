@@ -11,7 +11,7 @@ python generar_ejercicios_para_alumnos_en_ipynb.py xxxxxxxxx.ipynb
 
 Por ejemplo en terminal:
     
-    python generar_ejercicios_para_alumnos_en_ipynb.py 6_SOLUC.ipynb
+    python generar_ejercicios_para_alumnos_en_ipynb.py 6_Ejerc_PEATONES.ipynb
     
     genera 6_SOLUC_Ejer_Alumnos.html
     
