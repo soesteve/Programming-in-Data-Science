@@ -1,8 +1,7 @@
-Nombre,Edad,Población
-Sonia,24,Madrid
-Carmen,31,Sevilla
-Marta,28,Valencia
-Jose,40,Segovia
-Nieves,16,Madrid
-Carlitos,12,Madrid
-Amelia,,Toledo
+Nombre,Edad,Población,Menor_edad
+Sonia,24,Madrid,True
+Carmen,31,Sevilla,True
+Marta,28,Valencia,True
+Jose,40,Segovia,True
+Nieves,16,Madrid,False
+Carlitos,12,Madrid,False
