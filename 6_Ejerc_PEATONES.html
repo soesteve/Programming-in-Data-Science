@@ -8275,7 +8275,7 @@ Name: FECHA, Length: 166896, dtype: object</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">fecha1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"FECHA"</span><span class="p">]</span>
-<span class="n">fecha2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="s2">"FECHA"</span><span class="p">]</span>
+<span class="n">fecha2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="s2">"FECHA"</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">fecha1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fecha2</span><span class="p">)</span>
@@ -8380,6 +8380,7 @@ podemos convertirlos a un tipo de hora de pandas pero, pandas no tiene una funci
 
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -8394,6 +8395,11 @@ podemos convertirlos a un tipo de hora de pandas pero, pandas no tiene una funci
 <pre>object
 &lt;class 'datetime.time'&gt;
 </pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>datetime.time</pre>
 </div>
 </div>
 </div>
@@ -8999,8 +9005,9 @@ True
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_Centro_23</span> <span class="o">=</span> <span class="n">df_Centro</span><span class="p">[</span><span class="n">df_Centro</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span> <span class="o">==</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">"23:00"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"%H:%M"</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">()]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">df_Centro_23</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># df_Centro_23h = df_Centro[df_Centro["HORA"] == pd.to_datetime("23:00", format="%H:%M").time()].copy()</span>
+<span class="n">df_Centro_23h</span> <span class="o">=</span> <span class="n">df_Centro</span><span class="p">[</span><span class="n">df_Centro</span><span class="p">[</span><span class="s2">"HORA"</span><span class="p">]</span> <span class="o">==</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="n">df_Centro_23h</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -9293,7 +9300,7 @@ Name: PEATONES, dtype: int64
 
 <span class="n">total_peatones</span> <span class="o">=</span> <span class="n">df_fecha</span><span class="p">[</span><span class="s2">"PEATONES"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Total de peatones:"</span><span class="p">,</span> <span class="n">total_peatones</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Total de peatones:"</span><span class="p">,</span> <span class="n">total_peatones</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># 3. Calcular el total por distrito</span>
 
@@ -9313,7 +9320,8 @@ Name: PEATONES, dtype: int64
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Total de peatones: 76945
+<pre>Total de peatones: 76945 
+
 DISTRITO
 Centro             56432
 Chamberí            7329
@@ -9366,6 +9374,11 @@ Name: PEATONES, dtype: int64
 <span class="n">top_10</span> <span class="o">=</span> <span class="n">peatones_calle</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">top_10</span><span class="p">)</span>
+
+
+<span class="c1"># Se puede hacer directamente en una instrucción</span>
+<span class="c1"># pero hacemos 3 pasos para observar el proceso</span>
+<span class="c1"># df_1.groupby("DIRECCION")["PEATONES"].sum().sort_values(ascending=False).head(10)</span>
 </pre></div>
 </div>
 </div>
@@ -9414,26 +9427,14 @@ Name: PEATONES, dtype: int64
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=edc625e9-000f-4653-bbbe-fd9a344d1a1d">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=66a29281-61a4-437e-9c42-f9dfd3d8e87e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 1. Crear una columna con la hora</span>
-<span class="c1"># Como FECHA contiene la fecha y la hora, podemos extraer la hora con .dt.hour</span>
-<span class="n">df_1</span><span class="p">[</span><span class="s2">"HORA_DIA"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_1</span><span class="p">[</span><span class="s2">"FECHA"</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span>
-
-<span class="c1"># 2. Calcular el total de peatones por hora</span>
-<span class="n">peatones_hora</span> <span class="o">=</span> <span class="n">df_1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"HORA_DIA"</span><span class="p">)[</span><span class="s2">"PEATONES"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-
-<span class="c1"># 3. Ordenar de mayor a menor</span>
-<span class="n">peatones_hora_ordenado</span> <span class="o">=</span> <span class="n">peatones_hora</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
-    <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span>
-<span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">peatones_hora_ordenado</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_1</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
@@ -9443,40 +9444,65 @@ Name: PEATONES, dtype: int64
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>HORA_DIA
-20    4469552
-21    4169983
-19    4013067
-18    3304044
-14    3059466
-22    2906280
-13    2815571
-15    2751493
-17    2732509
-16    2488252
-12    2398073
-23    1911736
-11    1650985
-0     1253469
-10    1217730
-9      931989
-1      846635
-8      678473
-2      592709
-7      475331
-3      426225
-4      384638
-5      335120
-6      330353
-Name: PEATONES, dtype: int64
-</pre>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Index(['FECHA', 'HORA', 'PEATONES', 'DISTRITO', 'DIRECCION', 'NÚMERO',
+       'DIA_SEMANA', 'MES'],
+      dtype='object')</pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=36f8e302-3326-487c-9183-a4489a8bba68">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=edc625e9-000f-4653-bbbe-fd9a344d1a1d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"HORA"</span><span class="p">)[</span><span class="s2">"PEATONES"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>HORA
+20:00:00    4469552
+21:00:00    4169983
+19:00:00    4013067
+18:00:00    3304044
+14:00:00    3059466
+22:00:00    2906280
+13:00:00    2815571
+15:00:00    2751493
+17:00:00    2732509
+16:00:00    2488252
+12:00:00    2398073
+23:00:00    1911736
+11:00:00    1650985
+00:00:00    1253469
+10:00:00    1217730
+09:00:00     931989
+01:00:00     846635
+08:00:00     678473
+02:00:00     592709
+07:00:00     475331
+03:00:00     426225
+04:00:00     384638
+05:00:00     335120
+06:00:00     330353
+Name: PEATONES, dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6e33ce45-7ad8-4083-89a4-c19bffbd7aec">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
