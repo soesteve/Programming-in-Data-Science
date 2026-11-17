@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>7_Visualización</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>7_Visualización_Matplotlib</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7530,13 +7530,13 @@ a.anchor-link {
     }
     </style></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Introducci%C3%B3n-a-la-visualizaci%C3%B3n-de-datos-con-Python">1 Introducción a la visualización de datos con Python</a><ol><li><a href="#Objetivos">1.1 Objetivos</a></li><li><a href="#Bibliotecas-que-utilizaremos">1.2 Bibliotecas que utilizaremos</a></li><li><a href="#%C2%BFQu%C3%A9-es-la-visualizaci%C3%B3n-de-datos?">1.3 ¿Qué es la visualización de datos?</a></li><li><a href="#Introducci%C3%B3n-guiada-por-un-ejemplo">1.4 Introducción guiada por un ejemplo</a><ol><li><a href="#Primer-paso:-preparar-los-datos">1.4.1 Primer paso: preparar los datos</a></li><li><a href="#Segundo-paso:-crear-un-gr%C3%A1fico">1.4.2 Segundo paso: crear un gráfico</a></li></ol></li><li><a href="#Clasificaci%C3%B3n-de-los-principales-tipos-de-gr%C3%A1ficos">1.5 Clasificación de los principales tipos de gráficos</a><ol><li><a href="#Gr%C3%A1fico-de-sectores:-plt.pie()">1.5.1 Gráfico de sectores: plt.pie()</a></li><li><a href="#Gr%C3%A1fico-de-l%C3%ADneas:-plt.plot():">1.5.2 Gráfico de líneas: plt.plot():</a></li><li><a href="#Gr%C3%A1fico-de-barras:-plt.bar()">1.5.3 Gráfico de barras: plt.bar()</a></li><li><a href="#Gr%C3%A1fico-de-barras-horizontales:-plt.barh()">1.5.4 Gráfico de barras horizontales: plt.barh()</a></li><li><a href="#Histograma:-plt.hist()">1.5.5 Histograma: plt.hist()</a></li><li><a href="#Diagrama-de-caja:-plt.boxplot()">1.5.6 Diagrama de caja: plt.boxplot()</a></li><li><a href="#Diagrama-de-dispersi%C3%B3n:-plt.scatter()">1.5.7 Diagrama de dispersión: plt.scatter()</a></li></ol></li><li><a href="#Funciones-de-configuraci%C3%B3n">1.6 Funciones de configuración</a></li></ol></li><li><a href="#Referencias">2 Referencias</a></li></ol></div>
+<main><div class="tabla-contenidos"><h2>Índice</h2><ol><li><a href="#Visualizaci%C3%B3n-de-datos-con-Matplotlib">1 Visualización de datos con Matplotlib</a><ol><li><a href="#Objetivos">1.1 Objetivos</a></li><li><a href="#Bibliotecas-que-utilizaremos">1.2 Bibliotecas que utilizaremos</a></li><li><a href="#%C2%BFQu%C3%A9-es-la-visualizaci%C3%B3n-de-datos?">1.3 ¿Qué es la visualización de datos?</a></li><li><a href="#Introducci%C3%B3n-guiada-por-un-ejemplo">1.4 Introducción guiada por un ejemplo</a><ol><li><a href="#Primer-paso:-preparar-los-datos">1.4.1 Primer paso: preparar los datos</a></li><li><a href="#Segundo-paso:-crear-un-gr%C3%A1fico">1.4.2 Segundo paso: crear un gráfico</a></li></ol></li><li><a href="#Clasificaci%C3%B3n-de-los-principales-tipos-de-gr%C3%A1ficos">1.5 Clasificación de los principales tipos de gráficos</a><ol><li><a href="#Gr%C3%A1fico-de-sectores:-plt.pie()">1.5.1 Gráfico de sectores: plt.pie()</a></li><li><a href="#Gr%C3%A1fico-de-l%C3%ADneas:-plt.plot():">1.5.2 Gráfico de líneas: plt.plot():</a></li><li><a href="#Gr%C3%A1fico-de-barras:-plt.bar()">1.5.3 Gráfico de barras: plt.bar()</a></li><li><a href="#Gr%C3%A1fico-de-barras-horizontales:-plt.barh()">1.5.4 Gráfico de barras horizontales: plt.barh()</a></li><li><a href="#Histograma:-plt.hist()">1.5.5 Histograma: plt.hist()</a></li><li><a href="#Diagrama-de-caja:-plt.boxplot()">1.5.6 Diagrama de caja: plt.boxplot()</a></li><li><a href="#Diagrama-de-dispersi%C3%B3n:-plt.scatter()">1.5.7 Diagrama de dispersión: plt.scatter()</a></li></ol></li><li><a href="#Funciones-de-configuraci%C3%B3n">1.6 Funciones de configuración</a></li></ol></li><li><a href="#Referencias">2 Referencias</a></li></ol></div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3ded00c4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Introducci%C3%B3n-a-la-visualizaci%C3%B3n-de-datos-con-Python">1 Introducción a la visualización de datos con Python<a class="anchor-link" href="#Introducci%C3%B3n-a-la-visualizaci%C3%B3n-de-datos-con-Python">¶</a></h1><h2 id="Objetivos">1.1 Objetivos<a class="anchor-link" href="#Objetivos">¶</a></h2><p>Al terminar este cuaderno podrás:</p>
+<h1 id="Visualizaci%C3%B3n-de-datos-con-Matplotlib">1 Visualización de datos con Matplotlib<a class="anchor-link" href="#Visualizaci%C3%B3n-de-datos-con-Matplotlib">¶</a></h1><h2 id="Objetivos">1.1 Objetivos<a class="anchor-link" href="#Objetivos">¶</a></h2><p>Al terminar este cuaderno podrás:</p>
 <ul>
 <li>Explicar para qué sirve la visualización de datos.</li>
 <li>Elegir un gráfico adecuado según la pregunta que quieras responder.</li>
@@ -8077,7 +8077,7 @@ Veamos dos formas de solucionarlo.</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.legend.Legend at 0x10e626090&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x112b28590&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
